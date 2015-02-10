@@ -106,7 +106,7 @@ http {
         add_header Strict-Transport-Security max-age=691200;
 
         location / {
-            index  index.html  index.htm  index.php ;
+            index  index.php index.html  index.htm ;
 
             try_files $uri $uri/ @rewrites;
         }
@@ -128,7 +128,7 @@ http {
         }
 
         location @rewrites {
-            rewrite ^(.*)$ /index.php/$1 last;
+            rewrite ^/(.*)$ /index.php?_url=/$1;
         }
 
         # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000
@@ -140,6 +140,12 @@ http {
 
             include fastcgi_params;
         }
+    }
+	
+    # 301 redirect
+    server   {
+        server_name www.beplace.com;
+        rewrite  ^/(.*)$  http://beplace.com/$1 permanent;
     }
 
     # opt-in to the future
