@@ -144,6 +144,7 @@ http {
 	
     # 301 redirect
     server   {
+		listen 80;
         server_name www.beplace.com;
         rewrite  ^/(.*)$  http://beplace.com/$1 permanent;
     }
