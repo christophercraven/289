@@ -7,22 +7,22 @@ try {
 	/**
 	 * Read the configuration
 	 */
-	$config = include __DIR__ . '/../config/config.php';
+	$config = include __DIR__ . '/../app/config/config.php';
 
 	/**
 	 * Include Services
 	 */
-	include __DIR__ . '/../config/services.php';
+	include __DIR__ . '/../app/config/services.php';
 
 	/**
 	 * Include loader
 	 */
-	include __DIR__ . '/../config/loader.php';
+	include __DIR__ . '/../app/config/loader.php';
 
 	/**
 	 * Include bootstrap
 	 */
-	include __DIR__ . '/../config/bootstrap.php';
+	include __DIR__ . '/../app/config/bootstrap.php';
 
 	/**
 	 * Starting the application
