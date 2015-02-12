@@ -101,12 +101,11 @@ http {
         # Here you can set a server name, you can use wildcards such as *.example.com
         # however remember if you use server_name *.example.com; You'll only match subdomains
         # to match both subdomains and the main domain use both example.com and *.example.com
-        #server_name  localhost;
-		server_name www.beplace.com
+        server_name  localhost;
 
         # It is best to place the root of the server block at the server level, and not the location level
         # any location block path will be relative to this root.
-        root   ${OPENSHIFT_REPO_DIR}/web/public;
+        root   ${OPENSHIFT_REPO_DIR}web/public;
 
         # Forces modern clients to use secure connections only for at
         # least 8 days after the header was last returned. See:
