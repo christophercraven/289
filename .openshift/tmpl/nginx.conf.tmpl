@@ -85,12 +85,6 @@ http {
     gzip_disable        "MSIE [1-6]\.";
     gzip_vary           on;
 
-    # 301 redirect
-    server   {
-		listen       ${OPENSHIFT_DIY_IP}:${OPENSHIFT_DIY_PORT};
-        server_name  beplace.com;
-        return       301 $scheme://www.beplace.com/$request_uri;
-    }
 	
     server {
         # This will listen on all interfaces, you can instead choose a specific IP
@@ -149,6 +143,12 @@ http {
         }
     }
 	
+    # 301 redirect
+    server   {
+		listen       ${OPENSHIFT_DIY_IP}:${OPENSHIFT_DIY_PORT};
+        server_name  beplace.com;
+        return       301 $scheme://www.beplace.com/$request_uri;
+    }
 
 
     # opt-in to the future
