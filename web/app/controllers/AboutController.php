@@ -8,6 +8,8 @@ class AboutController extends ControllerBase
     }
 	public function indexAction()
 	{
-
+	$user = Users::findFirst(6);
+	echo $user->email_usr;
+	return;
 	}
 }

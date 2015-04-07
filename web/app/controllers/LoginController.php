@@ -38,12 +38,15 @@ class LoginController extends ControllerBase
         if ($this->request->isPost()) {
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-
+				$users = new Users;
+				var_dump($users);
+				return;
 
 			// Compare post data to database
 			try {
-				//var_dump($this->db);
-				//return;
+				$users = new Users;
+				var_dump($users);
+				return;
 				$user = Users::findFirst(array(
 					"email_usr = :email: OR username_usr = :email:",
 					'bind' => array('email' => $email) 
