@@ -31,10 +31,8 @@ class LoginController extends ControllerBase
             'level' => $user->level_usr_lvl,
         ));
     }
-    /**
-     * This action authenticates and logs user into the application
-     *
-     */
+    
+	// Authenticate and log user into the application
     public function startAction()
     {
         if ($this->request->isPost()) {
@@ -43,10 +41,22 @@ class LoginController extends ControllerBase
 
 
 			// Compare post data to database
-            $user = Users::findFirst(array(
-                "email_usr = :email: OR username_usr = :email:",
-                'bind' => array('email' => $email) 
-            ));
+			try {
+				$user = Users::findFirst(array(
+					"email_usr = :email: OR username_usr = :email:",
+					'bind' => array('email' => $email) 
+				));
+			} catch(Exception $e) {
+                //$errorMessage = $e->getMessage();
+                $this->flash->error(
+					
+                           
+					"Sorry, the following problems occurred: <ul>".
+					'<li><code>' . $e->getMessage() . '</code></li></ul>'
+                
+					
+					);
+            } 
 			
 			// If user is found, check password and welcome
             if ( $user ) {
