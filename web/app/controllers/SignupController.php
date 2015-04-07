@@ -20,11 +20,11 @@ class SignupController extends ControllerBase
         
         // Make a temporary random password
         $generated = generateRandom();
-        
+        $temporary = $generated;
         // Password salt and hash with 2 methods
         $secret = $option["secret"];
-        $generated = hashIt($postPost["pw_usr"], $secret);
-        $generated = $this->security->hash($generated . $secret) 
+        $generated = hashIt($generated, $secret);
+        $generated = $this->security->hash($generated . $secret); 
         
         // Get $_POST variables
 		$postPost = $this->request->getPost();
@@ -39,24 +39,36 @@ class SignupController extends ControllerBase
         $user->pw_usr    = $postPost["password"];
         
 		// Store and check for errors
+		echo '<div class="container">';
         try {
             $success = $user->create();
             if ($success) {
                 echo "<h1>Congratulations, " . ucfirst($postPost['name']) . "</h1>";
-                echo "New account added!";
-            }
+                echo "<p>New account added! </p>";
+				echo "<p>Your temporary password is <code>".$temporary."</code></p>";
+				echo "<p>Passwords are case sensitive.</p>";
+				echo "<p>Please login and change the password for increased security.</p>";
+				
+            } else {
+				echo "Sorry, the following problems occurred: <ul>";
+				foreach ($user->getMessages() as $message) {
+					echo "<li>", $message->getMessage(), "</li>";
+				}
+				echo "</ul>";
+			}
         }
         catch(Exception $e) {
-            echo 'Message: ' .$e->getMessage();
-        }
-		echo '<div class="container">';
-		{
-			echo "Sorry, the following problems occurred: <ul>";
-			foreach ($user->getMessages() as $message) {
-				echo "<li>", $message->getMessage(), "</li>";
+			
+            $errorMessage = $e->getMessage();
+			if ( strpos( $errorMessage, '1062' )) {
+                echo "<span class=\"alert\">Account already exists: </span>" . $postPost["email"]; 
+                
+            } else {
+				echo 'Message: ' .$e->getMessage();
 			}
-			echo "</ul>";
-		}
+        }
+		
+
 		echo "</div>";
 		//$this->view->disable();
 	}

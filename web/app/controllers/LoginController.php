@@ -44,26 +44,28 @@ class LoginController extends ControllerBase
             require "../app/library/Generator.php";
             
             // Password salt and hash with 2 methods
-            $secret = $option["secret"];
-            $password = hashIt($password, $secret);
+            //$secret = $option["secret"];
+            //$password = hashIt($password, $secret);
 
 			// Compare post data to database
             $user = Users::findFirst(array(
-                "(email_usr = :email: OR username_usr = :email:) AND active_usr = '1'",
+                "email_usr = :email: OR username_usr = :email:",
                 'bind' => array('email' => $email) 
             ));
 			
 			// If user is found, welcome
-            if ( $user && $this->security->checkhash($password . $secret, $user->pw_usr)) {
-                $this->_registerSession($user);
-                $this->flash->success('Welcome ' . $user->first_usr);
-				
-				if ( '10' == $user->level_usr_lvl ) return $this->forward('admin/index');
-                return $this->forward('member/index');
-			
+            if ( $user ) {
+				//if ( $this->security->checkhash($password . $secret, $user->pw_usr)) {
+				if ($password == $user->pw_usr) {
+					$this->_registerSession($user);
+					$this->flash->success('Welcome ' . $user->first_usr);
+					
+					if ( '10' == $user->level_usr_lvl ) return $this->forward('admin/index');
+					return $this->forward('member/index');
+				}
             }
-            $this->flash->error('Wrong email/password');
-			//var_dump($password);
+            $this->flash->error('Wrong email/password. ');
+			
         }
         return $this->forward('login/index');
     }
@@ -75,8 +77,8 @@ class LoginController extends ControllerBase
     public function endAction()
     {
         $test = $this->session->remove('auth');
-		var_dump($test);
-        $this->flash->success('Goodbye!');
+		
+        $this->flash->success('Goodbye!' .$test);
         return $this->forward('apps/index');
     }
 }
