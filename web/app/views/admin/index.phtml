@@ -1,0 +1,50 @@
+
+
+{% block content %}
+<div class="container">
+
+<h1>Admin dashboard</h1>
+<?php 
+// How many users are there?
+$users = Users::find();
+echo "Number of users in database: ", count($users), "\n";
+
+// Get and print virtual users ordered by name
+$users = Users::find(array(
+
+    "order" => "first_usr"
+));
+?>
+<table><tr><th>First Name</th><th>Email</th><th></th></tr>
+<?php
+foreach ($users as $user) {
+    echo "<tr><td>", $user->first_usr, "</td><td>", $user->email_usr, "</td>";
+    echo "<td>";
+    echo $this->tag->linkTo(array('admin/edit/user/'. $user->id_usr . '/', 'Edit', 'class' => 'button'));
+
+    echo "</td></tr>";
+}
+?>
+</table>
+
+
+	<h2>Add new user with this form:</h2>
+	{{ form("admin/register") }}
+		<div>
+		<label for='name'>First Name</label>
+			{{ text_field("first_usr") }}
+		</div>
+		<div>
+		<label for='email'>E-Mail</label>
+			{{ text_field("email_usr") }}
+		</div>
+
+		<label for='password'>Password</label>	
+			{{ text_field("pw_usr", "value" : "password") }}
+
+		<div> 
+		 {{ submit_button("Enter") }} 
+		</div>
+	{{ endform() }}
+</div>
+{% endblock %}

@@ -1,0 +1,46 @@
+
+
+{% block content %}
+<div class="section section-heading">
+	<div class="container">
+		<h1>Get the Lastest Cutting-Edge Apps</h1>
+		<h2>or vote on apps you would like to see created.</h2>
+
+
+<?php 
+	$auth = $this->session->get('auth');
+	if (!$auth) {
+		echo Phalcon\Tag::linkTo(array("signup", "Sign Up Here!", "class"=> "button button-primary")); 
+	}
+?>
+	</div>
+</div>
+<div class="container">
+	<div
+		class="parallax-image-wrapper parallax-image-wrapper-100"
+		data-anchor-target="#dragons + .gap"
+		data-bottom-top="transform:translate3d(0px, 200%, 0px)"
+		data-top-bottom="transform:translate3d(0px, 0%, 0px)">
+
+		<div
+			class="parallax-image parallax-image-100"
+			style="background-image:url(img/cloud.jpg)"
+			data-anchor-target="#dragons + .gap"
+			data-bottom-top="transform: translate3d(0px, -80%, 0px);"
+			data-top-bottom="transform: translate3d(0px, 80%, 0px);"
+		></div>
+		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
+	</div>
+	<div>
+		<label for="app_types_id">Lastest Apps</label>
+		<?php /* echo $this->tag->select(array(
+			"app_types_id",
+			$subTypes,
+			"using" => array("id", "name"),
+			"useDummy" => true
+		))  */?>
+		
+
+	</div>
+</div>
+{% endblock %}

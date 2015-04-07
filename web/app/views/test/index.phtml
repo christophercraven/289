@@ -1,0 +1,45 @@
+
+
+{% block content %}
+
+<h1>Test of database</h1>
+<?php 
+// How many users are there?
+$users = Users::find();
+echo "Number of users in database: ", count($users), "\n";
+
+// Get and print virtual users ordered by name
+$users = Users::find(array(
+
+    "order" => "first_usr"
+));
+?>
+<table><tr><th>First Name</th><th>Email</th></tr>
+<?php
+foreach ($users as $user) {
+    echo "<tr><td>", $user->first_usr, "</td><td>", $user->email_usr, "</td></tr>";
+}
+?>
+</table>
+
+
+	<h2>Add new user with this form:</h2>
+	{{ form("test/register") }}
+		<p>
+		<label for='name'>First Name</label>
+			{{ text_field("first_usr") }}
+		</p>
+		<p>
+		<label for='email'>E-Mail</label>
+			{{ text_field("email_usr") }}
+		</p>
+
+			
+			{{ hidden_field("pw_usr", "value" : "pword") }}
+
+		<p> 
+		 {{ submit_button("Enter") }} 
+		</p>
+	{{ endform() }}
+
+{% endblock %}

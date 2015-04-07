@@ -1,0 +1,47 @@
+
+{% block content %}
+<div class="container">
+
+<h1>Admin dashboard</h1>	
+
+
+    <h2>Edit user with this form:</h2>
+
+    {{ form('admin/save/user', 'id': 'adminEditForm') }}
+	
+    {{ hidden_field('id_usr') }}  
+	
+    <label for="username">Username</label>		
+    {{ text_field('username_usr', 'class': "form-control") }}        
+    
+    <label for="first">First Name</label>		
+    {{ text_field('first_usr', 'class': "form-control") }}      
+    
+    <label for="last">Last Name</label>		
+    {{ text_field('last_usr', 'class': "form-control") }}
+    
+    <label for="email">Email</label>		
+    {{ text_field('email_usr', 'class': "form-control") }}
+    <div class="alert" id="email_alert"><strong>Warning!</strong> Please enter a valid email.</div>
+
+    <label for="password">Password</label>
+    {{ password_field('pw_usr', 'class': "form-control") }}
+    <div class="alert" id="password_alert"><strong>Warning!</strong> Blank fields will be ignored.</div>
+
+    <label for="level">User Level</label>
+    {{ select('level_usr_lvl', ['0':'Basic', '10':'Admin'],'class': "form-control") }}
+
+    <label for="active">Active User</label>
+    {{ radio_field('active_usr', 'value' : 1, 'class': "form-control") }} yes&nbsp;
+   
+    {{ radio_field('active_usr', 'value' : 0, 'class': "form-control") }} no
+
+    <div>
+    {{ submit_button('Save', 'class': 'btn button-primary btn-large') }}
+    {{ link_to('admin', 'Cancel', 'class': 'button btn-large') }}
+    </div>
+        
+    {{ end_form() }}
+
+</div>
+{% endblock %}

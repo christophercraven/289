@@ -1,73 +1,95 @@
-
-h1 {
-	margin-top: 50px;
-	font-size: 48px;
+body {
+	background : ivory;
 }
 
-div.product-container {
-	width: 600px;
-	padding: 20px;
-	margin: 30px;
-	margin-top: 20px;
-	padding-top: 10px;
+header {
+	margin-top: 18rem;
 }
 
-img.img-sticker {
-	width: 300px;
-	padding: 20px;
-	height: 300px;
+.navbar {
+	position: fixed;
+	top: 0;
+	left: 0;
+	display: block;
+	width: 100%;
+	height: 6.5rem;
 	background: #fff;
-	border: 1px solid #ababab;
+	z-index: 99;
+	border-top: 1px solid #eee;
+	border-bottom: 1px solid #eee;
+	padding: 0 1.5rem;
+}
+
+.navbar ul, .nav-tabs ul{
+	list-style: none;
+	margin-bottom: 0;
+}
+
+.navbar ul li {
+	position: relative;
 	float: left;
-	-moz-box-shadow: 2px 2px 5px #dadada;
-	-webkit-box-shadow: 2px 2px 5px #dadada;
-	box-shadow: 2px 2px 5px #dadada;
+	margin-bottom: 0;
 }
 
-div.sell-tip {
-	background: #fafafa;
-	border: 1px solid #ababab;
-	width: 670px;
-	color: #363435;
-	text-shadow: #dadada 0.1em 0.1em 0.1em;
-	border-radius: 10px;
-	padding: 20px;
-	font-size: 18px;
-	padding-top: 25px;
-	padding-bottom: 17px;
-	padding-right: 30px;
-	padding-left: 0px;
-	height: 200px;
-}
-
-div.sell-tip span.d {
-	font-weight: bold;
-	font-size: 19px;
-}
-
-div.sell-tip span.info {
-	font-size: 12px;
-}
-
-.btn-success {
-	margin: 10px;
-	background: #58A400;
-	width: 250px;
-	font-size: 20px;
-	margin-left: 10px;
+.navbar ul li a {
 	text-transform: uppercase;
+	font-size: 11px;
+	font-weight: 600;
+	letter-spacing: .2rem;
+	margin-right: 35px;
+	text-decoration: none;
+	line-height: 6.5rem;
 }
 
-.btn-success:hover {
-	background: #58A400;
+.nav-tabs hr {
+
+	border-color: #bbb;
 }
 
-.share {
-	margin-top: 40px;
-	border-radius: 5px;
-	background: #dadada;
+.nav-tabs  li {
+	display: inline-block;
+	margin-right: .2rem;
+
 }
 
-.share td {
-	padding: 5px;
+.nav-tabs a {
+	border-bottom-right-radius: 0;
+	border-bottom-left-radius: 0;
+
+}
+
+.nav-tabs  .active a{
+	border-bottom: none;
+
+}
+
+#navbar-brand  {
+	color: #188aae;
+	font-size: 11px;
+}
+
+.alert, .errorMessage {
+	margin-top: -6px;
+	color: salmon;	
+	fill: salmon;
+	margin-bottom: 1em;
+}
+
+.sign svg {
+	margin-bottom: -6px;
+}
+
+/* Sections
+–––––––––––––––––––––––––––––––––––––––––––––––––– */
+.section {
+  padding: 8rem 0 7rem;
+
+}
+
+.section-heading,
+.section-description {
+	color: white;
+  background-image: url('../img/cloud.jpg');
+  margin-bottom: 1.2rem;
+
 }

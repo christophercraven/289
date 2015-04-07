@@ -1,0 +1,46 @@
+
+
+<div class="container">
+
+<h1>Admin dashboard</h1>	
+
+
+    <h2>Edit user with this form:</h2>
+
+    <?php echo $this->tag->form(array('admin/save/user', 'id' => 'adminEditForm')); ?>
+	
+    <?php echo $this->tag->hiddenField(array('id_usr')); ?>  
+	
+    <label for="username">Username</label>		
+    <?php echo $this->tag->textField(array('username_usr', 'class' => 'form-control')); ?>        
+    
+    <label for="first">First Name</label>		
+    <?php echo $this->tag->textField(array('first_usr', 'class' => 'form-control')); ?>      
+    
+    <label for="last">Last Name</label>		
+    <?php echo $this->tag->textField(array('last_usr', 'class' => 'form-control')); ?>
+    
+    <label for="email">Email</label>		
+    <?php echo $this->tag->textField(array('email_usr', 'class' => 'form-control')); ?>
+    <div class="alert" id="email_alert"><strong>Warning!</strong> Please enter a valid email.</div>
+
+    <label for="password">Password</label>
+    <?php echo $this->tag->passwordField(array('pw_usr', 'class' => 'form-control')); ?>
+    <div class="alert" id="password_alert"><strong>Warning!</strong> Blank fields will be ignored.</div>
+
+    <label for="level">User Level</label>
+    <?php echo $this->tag->select(array('level_usr_lvl', array('0' => 'Basic', '10' => 'Admin'), 'class' => 'form-control')); ?>
+
+    <label for="active">Active User</label>
+    <?php echo $this->tag->radioField(array('active_usr', 'value' => 1, 'class' => 'form-control')); ?> yes&nbsp;
+   
+    <?php echo $this->tag->radioField(array('active_usr', 'value' => 0, 'class' => 'form-control')); ?> no
+
+    <div>
+    <?php echo $this->tag->submitButton(array('Save', 'class' => 'btn button-primary btn-large')); ?>
+    <?php echo $this->tag->linkTo(array('admin', 'Cancel', 'class' => 'button btn-large')); ?>
+    </div>
+        
+    <?php echo $this->tag->endForm(); ?>
+
+</div>

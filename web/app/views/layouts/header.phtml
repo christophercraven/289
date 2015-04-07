@@ -1,0 +1,37 @@
+<?php 
+if (strpos($_SERVER['REQUEST_URI'], '289/web'))
+	$base = '/289/web/'; 
+	else $base = '/';
+?>
+
+
+
+<header>
+
+<nav class="navbar">
+  
+    
+
+	<ul class="nav-list">
+	<!-- Brand -->
+    <li>
+      <a  id="navbar-brand" href="<?php echo $base; ?>index/index">Apps.BePlace</a>
+    </li>
+		<li>			
+			<a href="<?php echo $base; ?>apps/index">Apps</a>
+		</li>
+		<li>
+			<a href="<?php echo $base; ?>about/index">About</a>		
+		</li>
+	</ul>
+<!--	<ul class="nav-list u-pull-right">
+	
+		<li>
+		<a href="<?php echo $base; ?>login/index">Log in/Sign up</a>
+		</li>
+	</ul> -->
+	{{ elements.getMenu() }}
+ 
+</nav>
+
+</header>
