@@ -57,7 +57,7 @@ class AdminController extends ControllerBase
             
             // Prepare fields, preventing SQL injection is handled automatically
             foreach ( $postPost as $key => $value ) {
-                if ( !empty( trim($value) ) ) {
+                if ( ! empty( trim($value) ) ) {
                     if ("pw_usr" == $key ) {
                         // Include password settings
                         require "../app/library/Generator.php";

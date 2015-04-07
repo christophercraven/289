@@ -40,12 +40,7 @@ class LoginController extends ControllerBase
         if ($this->request->isPost()) {
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-            // Include password settings
-            require "../app/library/Generator.php";
-            
-            // Password salt and hash with 2 methods
-            //$secret = $option["secret"];
-            //$password = hashIt($password, $secret);
+
 
 			// Compare post data to database
             $user = Users::findFirst(array(
@@ -53,12 +48,18 @@ class LoginController extends ControllerBase
                 'bind' => array('email' => $email) 
             ));
 			
-			// If user is found, welcome
+			// If user is found, check password and welcome
             if ( $user ) {
-				//if ( $this->security->checkhash($password . $secret, $user->pw_usr)) {
-				if ($password == $user->pw_usr) {
+				// Include password settings
+				require "../app/library/Generator.php";
+				
+				// Password salt and hash with 2 methods
+				$secret = $option["secret"];
+				$password = hashIt($password, $secret);
+				if ( $this->security->checkhash($password . $secret, $user->pw_usr)) {
+				//if ($password == $user->pw_usr) {
 					$this->_registerSession($user);
-					$this->flash->success('Welcome ' . $user->first_usr);
+					$this->flash->success('Welcome, ' . ucfirst($user->first_usr) . ".");
 					
 					if ( '10' == $user->level_usr_lvl ) return $this->forward('admin/index');
 					return $this->forward('member/index');

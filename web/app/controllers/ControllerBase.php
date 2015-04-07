@@ -9,7 +9,7 @@ class ControllerBase extends \Phalcon\Mvc\Controller
 	{
 		$this->tag->appendTitle(' | Apps.BePlace');
 	}
-	// forwards
+	// forwards the url sliced up into $_GET parameters
     protected function forward($uri)
     {
         $uriParts = explode('/', $uri);
