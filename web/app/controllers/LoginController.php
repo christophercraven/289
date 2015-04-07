@@ -42,6 +42,8 @@ class LoginController extends ControllerBase
 
 			// Compare post data to database
 			try {
+				//var_dump($this->db);
+				//return;
 				$user = Users::findFirst(array(
 					"email_usr = :email: OR username_usr = :email:",
 					'bind' => array('email' => $email) 
