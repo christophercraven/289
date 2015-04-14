@@ -57,7 +57,7 @@ class AdminController extends ControllerBase
             
             // Prepare fields, preventing SQL injection is handled automatically
             foreach ( $postPost as $key => $value ) {
-                if ( ! empty( trim($value) ) ) {
+                if ( !empty( trim($value) ) ) {
                     if ("pw_usr" == $key ) {
                         // Include password settings
                         require "../app/library/Generator.php";
@@ -76,27 +76,25 @@ class AdminController extends ControllerBase
             try {
                 $success = $user->update();
                 if ($success) {
-                    echo "<p>Success! User changes saved.</p>";
-                } else {
-                    echo "<div class=\"container\">";
-                    
-                    echo "Sorry, the following problems occurred: <ul>";
+                    $this->flash->success("Success! User changes saved.");
+                } else {                    
+                    // generate error messages
+                    $errorMessage = "Sorry, the following problems occurred: <ul>";
                     foreach ($user->getMessages() as $message) {
-                        echo "<li>", $message->getMessage(), "</li>";
+                        $errorMessage .= "<li>". $message->getMessage(). "</li>";
                     }
-                    echo "</ul>";
-                    echo "</div>";
+                    $errorMessage .= "</ul>";
+					$this->flash->error( $errorMessage );
+                    
                 }
 				//$this->flash->error($user->getMessages());
             }  
             catch(Exception $e) {
                 //$errorMessage = $e->getMessage();
-                echo "<div class=\"container\">";
                            
-                    echo "<span class=\"alert\">Sorry, the following problems occurred: </span><ul>";
-                    echo '<li>' . $e->getMessage() . '</li></ul>';
+                    $this->flash->notice( "Sorry, the following problems occurred: " );
+                    $this->flash->error(  $e->getMessage() );
                 
-                echo "</div>";
             } 
         }
     }
@@ -110,19 +108,19 @@ class AdminController extends ControllerBase
         try {
             $success = $user->create($postPost, array('first_usr', 'email_usr', 'pw_usr'));
             if ($success) {
-                echo "<p>New user added!</p>";
+                $this->flash->success("Success! New user added!");
             }
         }  catch(Exception $e) {
             $errorMessage = $e->getMessage();
-            echo "<div class=\"container\">";
-            if ( strpos( $errorMessage, '1062' )) {
-                echo "<span class=\"alert\">Account already exists: </span>" . $postPost["email_usr"] . "<p>" . $errorMessage . "</p>"; 
+            
+            if ( strpos( $errorMessage, 'uplicate' )) {
+                $this->flash->error("Account already exists: " . $postPost["email_usr"] . "<p>" . $errorMessage . "</p>"); 
                 
             } else {            
-                echo "<span class=\"alert\">Sorry, the following problems occurred: </span><ul>";
-                echo '<li>' . $errorMessage . '</li></ul>';
+                $this->flash->notice( "Sorry, the following problems occurred: " );
+                $this->flash->error( $errorMessage );
             }
-			echo "</div>";
+			
         } 
 
 	}

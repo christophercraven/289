@@ -10,6 +10,5 @@ class IndexController extends ControllerBase
 	{
 		//$this->persistent->searchParams = null;
 		//$this->view->subTypes = SubTypes::find();
-		
 	}
 }

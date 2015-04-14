@@ -1,0 +1,10 @@
+
+<?php echo $this->getContent(); ?>
+
+<div class="container">
+<div class="jumbotron">
+    <h1>Server Error 500</h1>
+    <p>
+    <p><?php echo $this->tag->linkTo(array('index', 'Home', 'class' => 'button btn-primary')); ?></p>
+</div>
+</div>

@@ -31,53 +31,40 @@ class LoginController extends ControllerBase
             'level' => $user->level_usr_lvl,
         ));
     }
-    
-	// Authenticate and log user into the application
+    /**
+     * This action authenticates and logs user into the application
+     *
+     */
     public function startAction()
     {
         if ($this->request->isPost()) {
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-				$users = new Users;
-				var_dump($users);
-				return;
+            // Include password settings
+            require "../app/library/Generator.php";
+            
+            // Password salt and hash with 2 methods
+            $secret = $option["secret"];
+            $password = hashIt($password, $secret);
 
 			// Compare post data to database
-			try {
-				$users = new Users;
-				var_dump($users);
-				return;
-				$user = Users::findFirst(array(
-					"email_usr = :email: OR username_usr = :email:",
-					'bind' => array('email' => $email) 
-				));
-			} catch(Exception $e) {
-                //$errorMessage = $e->getMessage();
-                $this->flash->error(
-					
-                           
-					"Sorry, the following problems occurred: <ul>".
-					'<li><code>' . $e->getMessage() . '</code></li></ul>'
-                
-					
-					);
-            } 
+            $user = Users::findFirst(array(
+                "email_usr = :email: OR username_usr = :email:",
+                'bind' => array('email' => $email) 
+            ));
 			
-			// If user is found, check password and welcome
+			// If user is found, welcome
             if ( $user ) {
-				// Include password settings
-				require "../app/library/Generator.php";
-				
-				// Password salt and hash with 2 methods
-				$secret = $option["secret"];
-				$password = hashIt($password, $secret);
 				if ( $this->security->checkhash($password . $secret, $user->pw_usr)) {
 				//if ($password == $user->pw_usr) {
 					$this->_registerSession($user);
-					$this->flash->success('Welcome, ' . ucfirst($user->first_usr) . ".");
+					$this->flash->success('Welcome ' . ucfirst($user->first_usr));
 					
-					if ( '10' == $user->level_usr_lvl ) return $this->forward('admin/index');
-					return $this->forward('member/index');
+					if ( '10' == $user->level_usr_lvl ) {
+						return $this->forward('admin/index');
+					} else {
+						return $this->forward('member/index');
+					}
 				}
             }
             $this->flash->error('Wrong email/password. ');
