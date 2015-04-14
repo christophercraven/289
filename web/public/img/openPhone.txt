@@ -1,0 +1,9 @@
+openPhone v1
+
+After a long time without deviations, I am back with this release. I made some icons inspirated on the new iPhone, but I found out there are lots of similar works. So I thought my icons would be more useful if I released the source. And here we are. I hope they can be useful for you.
+
+I made these icons on Illustrator and exported the layers to Photoshop (.PSD).
+
+Enjoy!
+
+By walrick, http://walrick.deviantART.com
