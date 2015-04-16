@@ -5,6 +5,8 @@
 <div class="container">
         
     <p>Your Sponsorship Information</p>
-        
-
+      
+	{% for sponsor in sponsors %}
+		* Name: {{ sponsor.name_spo|e }}
+	{% endfor %}
 </div>

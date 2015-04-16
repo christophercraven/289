@@ -1,7 +1,7 @@
 <?php
 
 
-
+// this controls member sponsorship 
 class SponsorsController extends ControllerBase
 {
     public function initialize()
@@ -12,6 +12,8 @@ class SponsorsController extends ControllerBase
 	
     public function indexAction()
     {
+		$sponsors = Sponsors::find();
+		$this->view->setVar("sponsors", $sponsors);
     }
 
 
