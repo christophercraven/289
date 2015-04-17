@@ -79,6 +79,19 @@ header {
 	margin-bottom: -6px;
 }
 
+ul.app-listings {
+	list-style: none;
+}
+
+ul.app-listings li {
+	display: inline-block;
+	width: 30%;
+	background: white;
+	border: 1px solid #eee;
+	padding: 0 7px;
+	text-align: center;
+}
+
 /* Sections
 –––––––––––––––––––––––––––––––––––––––––––––––––– */
 .section {
@@ -93,3 +106,4 @@ header {
   margin-bottom: 1.2rem;
 
 }
+

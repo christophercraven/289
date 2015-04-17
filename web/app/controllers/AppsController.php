@@ -9,8 +9,8 @@ class AppsController extends ControllerBase
 	}
 	public function indexAction()
 	{
-		//$this->tag->prependTitle('Test of Database');
-		//parent::initialize();
+        //Setting variable for the view component
+        $this->view->apps = Apps::find();
 	}
 	public function registerAction()
 	{
