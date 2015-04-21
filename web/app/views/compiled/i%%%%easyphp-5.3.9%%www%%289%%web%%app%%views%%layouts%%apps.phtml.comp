@@ -1,0 +1,15 @@
+<div class="container">
+    <h1>Latest Apps</h1>
+    <ul class="app-listings">
+    <?php foreach ($apps as $app) { ?>
+        <li>
+        <img src=<?php echo $app->icon_app; ?> />
+        <h2><?php echo $app->name_app; ?></h2>
+        <p><?php echo $app->tagline_app; ?></p>
+        <p data-desc=<?php echo $app->desc_app; ?>></p>
+        <span>Votes:</span>
+        </li>
+    <?php } ?>
+
+    </ul>
+</div>

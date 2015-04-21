@@ -31,8 +31,11 @@
 		></div>
 		<!--the +/-80% translation can be adjusted to control the speed difference of the image-->
 	</div>
-	<div>
-		<label for="app_types_id">Lastest Apps</label>
+
+</div>	
+<div class="section">
+    
+		
 		<?php /* echo $this->tag->select(array(
 			"app_types_id",
 			$subTypes,
@@ -41,5 +44,6 @@
 		))  */?>
 		
 
-	</div>
+		<?php echo $this->partial('layouts/apps'); ?>
+	
 </div>

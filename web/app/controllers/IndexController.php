@@ -8,7 +8,7 @@ class IndexController extends ControllerBase
 	}
 	public function indexAction()
 	{
-		//$this->persistent->searchParams = null;
-		//$this->view->subTypes = SubTypes::find();
+        //Setting variable for the view component
+        $this->view->apps = Apps::find();
 	}
 }

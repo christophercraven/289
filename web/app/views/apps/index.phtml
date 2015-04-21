@@ -1,22 +1,11 @@
 
 
 {% block content %}
-<div class="container">
-
-<h1>Apps</h1>
-
-<ul class="app-listings">
-{% for app in apps %}
-	<li>
-	<img src={{ app.icon_app }} />
-	<h2>{{ app.name_app }}</h2>
-	<p>{{ app.tagline_app }}</p>
-	<p data-desc={{ app.desc_app }}></p>
-	<span>Votes:</span>
-	</li>
-{% endfor %}
-
-</ul>
+<div class="section">
+    
 
 
+    {{ partial('layouts/apps') }}
+    
+</div>
 {% endblock %}

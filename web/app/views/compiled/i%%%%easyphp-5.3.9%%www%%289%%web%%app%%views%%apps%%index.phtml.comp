@@ -1,11 +1,10 @@
 
 
 
-<div class="container">
+<div class="section">
+    
 
-<h1>Apps</h1>
 
+    <?php echo $this->partial('layouts/apps'); ?>
+    
 </div>
-
-
-
