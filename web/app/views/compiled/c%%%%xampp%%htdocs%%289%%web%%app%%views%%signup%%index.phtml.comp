@@ -1,19 +1,19 @@
 
 
-{% block content %}
+
 
 <div class="container">
 <?php use Phalcon\Tag; ?>
 <h2>Sign up using this form</h2>
-    {{ form('signup/register', 'id': 'registerForm', 'onbeforesubmit': 'return false') }}
+    <?php echo $this->tag->form(array('signup/register', 'id' => 'registerForm', 'onbeforesubmit' => 'return false')); ?>
 
 <label for="name">First Name</label>
-                {{ text_field("name", "size": "30", "class": "span6") }}
+                <?php echo $this->tag->textField(array('name', 'size' => '30', 'class' => 'span6')); ?>
 <p class="alert" id="name_alert"> Please enter your first name.</p>
 
 
 <label for="email">E-Mail</label>
-                {{ text_field("email", "size": "30", "class": "span6") }}
+                <?php echo $this->tag->textField(array('email', 'size' => '30', 'class' => 'span6')); ?>
 <p class="alert" id="email_alert"> Please enter a valid email.</p>
 
         <script src='https://www.google.com/recaptcha/api.js'></script>
@@ -21,6 +21,5 @@
 <p>
 <?php echo Tag::submitButton("Register") ?>
 </p>
-{{ end_form() }}
+<?php echo $this->tag->endForm(); ?>
 </div>
-{% endblock %}
