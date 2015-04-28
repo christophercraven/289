@@ -1,15 +1,28 @@
 <?php
+/**
+ * Controller base template
+ * 
+ * All controllers are based on this.
+ */ 
 use Phalcon\Flash;
 use Phalcon\Session;
 
 class ControllerBase extends \Phalcon\Mvc\Controller
 {
-	// sets the title tag in the html head section
+/**
+ * Appends the site name to the title
+ * 
+ * 
+ */ 
 	protected function initialize()
 	{
 		$this->tag->appendTitle(' | Apps.BePlace');
 	}
-	// forwards
+/**
+ * Forwards parsed URI
+ * 
+ * 
+ */ 
     protected function forward($uri)
     {
         $uriParts = explode('/', $uri);
@@ -25,7 +38,11 @@ class ControllerBase extends \Phalcon\Mvc\Controller
 
 	/* public function notFoundAction()
 	{
-	// Send a HTTP 404 response header
+/**
+ * Send a HTTP 404 response header
+ * 
+ * 
+ * 
 	$this->response->setStatusCode(404, "Not Found");
 	} */
 }

@@ -1,10 +1,18 @@
 <?php
-// First load configuration settings
+/**
+ * First load configuration settings
+ * 
+ * 
+ */ 
 require "../app/library/Config.php";
 $config = new \Phalcon\Config($settings);
 
 try {
-	// Register an autoloader
+/**
+ * Register an autoloader
+ * 
+ * 
+ */ 
 	$loader = new \Phalcon\Loader();
 	$loader->registerDirs(array(
 		'../app/controllers/',
@@ -12,11 +20,18 @@ try {
 		'../app/models/'
 	))->register();
 	
-	// Instantiate the Dependency Injector
+/**
+ * Instantiate the Dependency Injector
+ * 
+ * 
+ */ 
 	$di = new Phalcon\DI\FactoryDefault();
 	
-	 
-	// Register the events manager
+/**
+ * Register the events manager
+ * 
+ * 
+ */ 
 	
 	$di->set('dispatcher', function() use ($di) {
 		$eventsManager = new Phalcon\Events\Manager();
@@ -33,7 +48,11 @@ try {
 		return $dispatcher;
 	});
 	
-	// Setup the database service
+/**
+ * Setup the database service
+ * 
+ * 
+ */ 
 	$di->set('db', function() use ($config) {
 
 		return new \Phalcon\Db\Adapter\Pdo\Mysql(array(
@@ -44,7 +63,11 @@ try {
 		));
 	});
 	
-	//Register volt as a service
+/**
+ * Register volt as a service
+ * 
+ * 
+ */
 	$di->set('voltService', function($view, $di) {
 
 		$volt = new Phalcon\Mvc\View\Engine\Volt($view, $di);
@@ -57,7 +80,11 @@ try {
 
 		return $volt;
 	});
-	//Setup the view component
+/**
+ * Setup the view component
+ * 
+ * 
+ */
 	$di->set('view', function(){
 		$view = new \Phalcon\Mvc\View();
 		$view->setViewsDir('../app/views/');
@@ -68,7 +95,11 @@ try {
 		return $view;
 	});
 	
-	//Setup a base URI 
+/**
+ * Setup a base URI 
+ * 
+ * 
+ */
 	$di->set('url', function() use ($config) {
 		$url = new \Phalcon\Mvc\Url();
 		$url->setBaseUri($config->baseUri);
@@ -76,7 +107,11 @@ try {
 	});
 
 	
-	//Start the session when requested
+/**
+ * Start the session when requested
+ * 
+ * 
+ */
 	$di->set('session', function() {
 		$session = new \Phalcon\Session\Adapter\Files();
 		$session->start();
@@ -84,7 +119,11 @@ try {
 	});
 
 	
-	//Register the flash service with custom CSS classes
+/**
+ * Register the flash service with custom CSS classes
+ * 
+ * 
+ */
 	$di->set('flash', function(){
 		return new Phalcon\Flash\Session(array(
 			'error'   => 'alert alert-danger',
@@ -93,20 +132,35 @@ try {
 		));
 	}); 
     
-    //Set encryption work factor  
+/**
+ * Set encryption work factor
+ * 
+ * 
+ */  
     $di->set('security', function(){
         $security = new Phalcon\Security();
-        //Set the password hashing factor to 10 rounds
+/**
+ * Set the password hashing factor to 10 rounds
+ * 
+ * 
+ */
         $security->setWorkFactor(10);
         return $security;
         }, true);
         
-	//Register a user menu component
+/**
+ * Register a user menu component
+ * 
+ * 
+ */
 	$di->set('elements', function(){
 		return new Elements();
 	});
-	
-	//Handle the request
+/**
+ * Handle the request
+ * 
+ * 
+ */
 	$application = new \Phalcon\Mvc\Application($di);
 	echo $application->handle()->getContent();
 	

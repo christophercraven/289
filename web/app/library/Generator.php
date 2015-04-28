@@ -1,6 +1,17 @@
 <?php
+/**
+ * Generator.php
+ * 
+ * Sets secrets, hash method, generates passwords. 
+ */
+ 
+/**
+ * Generate random passwords from word database
+ * 
+ * 
+ */
 function generateRandom() {
-    //Generate random passwords from word database
+
     $colors = Colors::find();
     $colors = $colors->toarray();
     $color = rand(0, count($colors)-1);
@@ -12,10 +23,20 @@ function generateRandom() {
     return $generated;
 }
 
+/**
+ * Sets a secret for the password hashing
+ * 
+ * 
+ */
 $option = array(
     "secret" => "The rain in Spain falls mainly in the plain."
     );
-
+	
+/**
+ * Generate random passwords from word database
+ * 
+ * 
+ */
 function hashIt( $password, $secret ) {     
     $password = hash('sha512', $password . $secret, false);
     return $password;

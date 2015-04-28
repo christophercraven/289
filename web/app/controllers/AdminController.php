@@ -1,6 +1,21 @@
 <?php       
- // Include logger settings
-        require "../app/library/Logger.php";
+/**
+ * Controller for the Admin page 
+ * 
+ * Backend page for administrator access only. Provides high level access to database.
+ */ 
+
+/**
+ * Include logger settings
+ * 
+ * 
+ */ 
+require "../app/library/Logger.php";
+/**
+ * Initialize page and set title
+ * 
+ * 
+ */ 
 class AdminController extends ControllerBase
 {
 	public function initialize()
@@ -8,20 +23,32 @@ class AdminController extends ControllerBase
 		$this->tag->setTitle('Admin');
 		parent::initialize();
 	}
-    
+	
+/**
+ * Edit user data and change passwords
+ * 
+ * 
+ */     
 	public function indexAction()
 	{
-		//$this->persistent->searchParams = null;
-		//$this->view->subTypes = SubTypes::find();
+		// $this->persistent->searchParams = null;
+		// $this->view->subTypes = SubTypes::find();
 	}
     
-    // Edit user data and change passwords
+/**
+ * Edit user data and change passwords
+ * 
+ * 
+ */ 
     public function editAction()
 	{
         $param = $this->request->get();
         $param = explode("/", $param["_url"]);
-        
-        // Find requested user data
+/**
+ * Find requested user data
+ * 
+ * 
+ */ 
         $user = Users::findFirst($param[4]);
         $this->tag->setDefault('id_usr', $user->id_usr);
         $this->tag->setDefault('username_usr', $user->username_usr);
@@ -42,7 +69,10 @@ class AdminController extends ControllerBase
     //$this->view->disable();
 	}
 
-    // Save changes to user data 
+/**
+ * Save changes to user data 
+ */
+	
     public function saveAction()
 	{
         $param = $this->request->get();
@@ -54,15 +84,26 @@ class AdminController extends ControllerBase
             
             // Intantiate user database
             $user = Users::findFirst( $postPost["id_usr"] );
-            
-            // Prepare fields, preventing SQL injection is handled automatically
+/**
+ * Prepare fields, preventing SQL injection is handled automatically
+ * 
+ * 
+ */ 
             foreach ( $postPost as $key => $value ) {
                 if ( !empty( trim($value) ) ) {
                     if ("pw_usr" == $key ) {
-                        // Include password settings
+/**
+ * Include password settings
+ * 
+ * 
+ */ 
                         require "../app/library/Generator.php";
                         
-                        // Password salt and hash with 2 methods
+/**
+ * Password salt and hash with 2 methods
+ * 
+ * 
+ */ 
                         $value = hashIt($postPost["pw_usr"], $option["secret"]);
                         $value = $this->security->hash($value . $option["secret"]); 
                         $postPost["pw_usr"] = $value;
@@ -72,13 +113,21 @@ class AdminController extends ControllerBase
                 }
             }
 
-            //Store and check for errors
+/**
+ * Store and check for errors
+ * 
+ * 
+ */
             try {
                 $success = $user->update();
                 if ($success) {
                     $this->flash->success("Success! User changes saved.");
                 } else {                    
-                    // generate error messages
+/**
+ * generate error messages
+ * 
+ * 
+ */ 
                     $errorMessage = "Sorry, the following problems occurred: <ul>";
                     foreach ($user->getMessages() as $message) {
                         $errorMessage .= "<li>". $message->getMessage(). "</li>";
@@ -99,12 +148,20 @@ class AdminController extends ControllerBase
         }
     }
     
-    // Add new users to the database
+/**
+ * Add new users to the database
+ * 
+ * 
+ */ 
 	public function registerAction()
 	{
 		$user = new Users();
         $postPost = $this->request->getPost();
-		//Store and check for errors
+/**
+ * Store and check for errors
+ * 
+ * 
+ */
         try {
             $success = $user->create($postPost, array('first_usr', 'email_usr', 'pw_usr'));
             if ($success) {

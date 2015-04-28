@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * SecurityPlugin.php
+ * 
+ * Library of methods for handling security
+ */
 use Phalcon\Acl;
 use Phalcon\Acl\Role;
 use Phalcon\Acl\Resource;
@@ -32,7 +36,11 @@ class SecurityPlugin extends Plugin
 
 			$acl->setDefaultAction(Acl::DENY);
 
-			//Register roles
+/**
+ * Register roles
+ * 
+ * 
+ */
 			$roles = array(
 				'admin'  => new Role('Admin'),
 				'users'  => new Role('Users'),
@@ -42,7 +50,11 @@ class SecurityPlugin extends Plugin
 				$acl->addRole($role);
 			}
 
-			//Private area resources whitelist
+/**
+ * Private area resources whitelist
+ * 
+ * 
+ */
 			$privateResources = array(
 				'votes'       => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
 				'sponsors'    => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete'),
@@ -54,7 +66,11 @@ class SecurityPlugin extends Plugin
 				$acl->addResource(new Resource($resource), $actions);
 			}
 
-			//Public area resources whitelist
+/**
+ * Public area resources whitelist
+ * 
+ * 
+ */
 			$publicResources = array(
 				'index'      => array('index'),
 				'apps'       => array('index'),
@@ -68,7 +84,11 @@ class SecurityPlugin extends Plugin
 				$acl->addResource(new Resource($resource), $actions);
 			}
 
-			//Admin area resources whitelist
+/**
+ * Admin area resources whitelist
+ * 
+ * 
+ */
 			$adminResources = array(
 				'admin'       => array('index', 'search', 'new', 'edit', 'save', 'create', 'delete', 'register')
 				
@@ -77,7 +97,11 @@ class SecurityPlugin extends Plugin
 				$acl->addResource(new Resource($resource), $actions);
 			}
 
-			//Grant access to public areas to both users and guests
+/**
+ * Grant access to public areas to both users and guests
+ * 
+ * 
+ */
 			foreach ($roles as $role) {
 				foreach ($publicResources as $resource => $actions) {
 					foreach ($actions as $action){
@@ -86,7 +110,11 @@ class SecurityPlugin extends Plugin
 				}
 			}
 
-			//Grant acess to private area to role Users 
+/**
+ * Grant acess to private area to role Users 
+ * 
+ * 
+ */
 			foreach ($privateResources as $resource => $actions) {
 				foreach ($actions as $action){
 					$acl->allow('Users', $resource, $action);
@@ -94,14 +122,22 @@ class SecurityPlugin extends Plugin
 				}
 			}
 			
-			//Grant acess to admin area to role Admin 
+/**
+ * Grant acess to admin area to role Admin 
+ * 
+ * 
+ */
 			foreach ($adminResources as $resource => $actions) {
 				foreach ($actions as $action){
 					$acl->allow('Admin', $resource, $action);
 				}
 			}
 
-			//The acl is stored in session, APC would be useful here too
+/**
+ * The acl is stored in session, APC would be useful here too
+ * 
+ * 
+ */
 			$this->persistent->acl = $acl;
 		}
 
@@ -141,9 +177,6 @@ class SecurityPlugin extends Plugin
 		}
 	}
     
-    public function getSalt()
-	{
-		return "The rain in Spain falls mainly in the plain.";
-	}
+
 }
 

@@ -1,24 +1,48 @@
 <?php
-
-
-// Member control panel controller
+/**
+ * Member control panel controller
+ * 
+ * 
+ */ 
+ 
+ 
 class MemberController extends ControllerBase
 {
+/**
+ * Initialize page and set title
+ *
+ */
     public function initialize()
     {
         $this->tag->setTitle('Your Account');
         parent::initialize();
     }
+/**
+ * Index method is purposely blank
+ *
+ */
     public function indexAction()
     {
     }
     
-    //Edit the active user profile
+/**
+ * Allows editing the active user's profile
+ * 
+ * First checks if authorized, then commits changes to database.
+ */
     public function profileAction()
     {
-        //Get session info
+/**
+ * Get session info
+ * 
+ * 
+ */
         $auth = $this->session->get('auth');
-        //Query the active user
+/**
+ * Query the active user
+ * 
+ * 
+ */
         $user = Users::findFirst($auth['id']);
         if ($user == false) {
             return $this->_forward('index/index');
@@ -41,12 +65,24 @@ class MemberController extends ControllerBase
         }
     }
     
-    // Edit the user app profiles
+/**
+ * Edit the user app project profiles
+ * 
+ * First verify authorized user, the update database with changes
+ */ 
     public function projectsAction()
     {
-        //Get session info
+/**
+ * Get session info
+ * 
+ * 
+ */
         $auth = $this->session->get('auth');
-        //Query the active user
+/**
+ * Query the active user
+ * 
+ * 
+ */
         $user = Users::findFirst($auth['id']);
         $apps = Apps::findFirst($auth['id']);
         if ($user == false) {

@@ -6,11 +6,19 @@
  */
 class LoginController extends ControllerBase
 {
+	/**
+     * Initialize page and set title
+     *
+     */
     public function initialize()
     {
         $this->tag->setTitle('Log in/Sign up');
         parent::initialize();
     }
+	/**
+     * This method populates the index login with demo account
+     *
+     */
     public function indexAction()
     {
         if (!$this->request->isPost()) {
@@ -32,7 +40,7 @@ class LoginController extends ControllerBase
         ));
     }
     /**
-     * This action authenticates and logs user into the application
+     * This method authenticates and logs user into the application
      *
      */
     public function startAction()
@@ -40,23 +48,39 @@ class LoginController extends ControllerBase
         if ($this->request->isPost()) {
             $email = $this->request->getPost('email');
             $password = $this->request->getPost('password');
-            // Include password settings
+/**
+ * Include password settings
+ * 
+ * 
+ */ 
             require "../app/library/Generator.php";
             
-            // Password salt and hash with 2 methods
+/**
+ * Password salt and hash with 2 methods
+ * 
+ * 
+ */ 
             $secret = $option["secret"];
             $password = hashIt($password, $secret);
 
-			// Compare post data to database
+/**
+ * Compare post data to database
+ * 
+ * 
+ */ 
             $user = Users::findFirst(array(
                 "email_usr = :email: OR username_usr = :email:",
                 'bind' => array('email' => $email) 
             ));
 			
-			// If user is found, welcome
+/**
+ * If user is found, welcome
+ * 
+ * 
+ */ 
             if ( $user ) {
 				if ( $this->security->checkhash($password . $secret, $user->pw_usr)) {
-				//if ($password == $user->pw_usr) {
+
 					$this->_registerSession($user);
 					$this->flash->success('Welcome ' . ucfirst($user->first_usr));
 					

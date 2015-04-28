@@ -1,6 +1,17 @@
 <?php
-use Phalcon\Logger\Adapter\File as Logger;
+/**
+ * Logger.php
+ * 
+ * Logs errors in database access.
+ */
+ 
 
+use Phalcon\Logger\Adapter\File as Logger;
+/**
+ * Listens to database calls
+ * 
+ * 
+ */
 class MyDbListener {
     protected $_logger;
     public function __construct()

@@ -1,5 +1,10 @@
 <?php
-
+/**
+ * Configuration of application services
+ * 
+ * Sets up view settings for compiled files, their extensions and paths, 
+ * generates urls, and assigns database configuration
+ */
 use Phalcon\Mvc\View,
 	Phalcon\Mvc\Url as UrlResolver,
 	Phalcon\DI\FactoryDefault,
@@ -24,7 +29,11 @@ $di['view'] = function() use ($config) {
 					'compiledPath'      => __DIR__ . '/../cache/volt/',
 					'compiledExtension' => '.php',
 					'compiledSeparator' => '_',
-					//'compileAlways'     => true
+					/**
+ * 
+ * 
+ * 
+ */'compileAlways'     => true
 				)
 			);
 			return $volt;

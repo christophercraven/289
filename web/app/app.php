@@ -1,21 +1,21 @@
 <?php
 
 /**
- * Add your routes here
+ * Route to main index
  */
 $app->get('/', function () use ($app) {
 	echo $app->render('index/index');
 });
 
 /**
- * Add your routes here
+ * Route to thanks page
  */
 $app->get('/thanks', function () use ($app) {
 	echo $app->render('index/thanks');
 });
 
 /**
- * Add your routes here
+ * Route to cancel result page
  */
 $app->get('/cancel', function () use ($app) {
 	echo $app->render('index/cancel');

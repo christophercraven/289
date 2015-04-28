@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Configuration settings for common directories
+ *
+ */
 return new \Phalcon\Config(array(
 	'application' => array(
 		'modelsDir'      => __DIR__ . '/../app/models/',

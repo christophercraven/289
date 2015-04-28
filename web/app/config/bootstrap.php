@@ -1,5 +1,8 @@
 <?php
-
+/**
+ * Bootstrap for micro site
+ *
+ */
 use Phalcon\Mvc\View,
 	Phalcon\Mvc\Micro;
 

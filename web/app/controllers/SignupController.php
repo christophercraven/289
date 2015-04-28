@@ -1,18 +1,33 @@
 <?php
-
+/**
+ * Member sign up controller
+ * 
+ * 
+ */ 
 class SignupController extends ControllerBase
-
 {
+/**
+ * Initialize page and set title
+ * 
+ * 
+ */ 
     public function initialize()
     {
         $this->tag->setTitle('Sign up');
         parent::initialize();
     }
-	
+/**
+ * Method purposely blank
+ * 
+ */	
 	public function indexAction()
 	{
 	}
-
+/**
+ * Registration of new users
+ * 
+ * Checks for captcha, automatically generates a temporary password
+ */
 	public function registerAction()
 	{	
 		if ( isset($_POST['g-recaptcha-response']) ) {
@@ -20,31 +35,58 @@ class SignupController extends ControllerBase
 			$recaptcha = new \ReCaptcha\ReCaptcha($secret);
 			$resp = $recaptcha->verify($_POST['g-recaptcha-response'], $_SERVER['REMOTE_ADDR']);
 			if ($resp->isSuccess()):
-
-				// Include password settings
+/**
+ * Include password settings
+ * 
+ * 
+ */ 
 				require "../app/library/Generator.php";
 
-				// Make a temporary random password
+/**
+ * Make a temporary random password
+ * 
+ * 
+ */ 
 				$generated = generateRandom();
 				$temporary = $generated;
-				// Password salt and hash with 2 methods
+/**
+ * Password salt and hash with 2 methods
+ * 
+ * 
+ */ 
 				$secret = $option["secret"];
 				$generated = hashIt($generated, $secret);
 				$generated = $this->security->hash($generated . $secret); 
 				
-				// Get $_POST variables
+/**
+ * Get $_POST variables
+ * 
+ * 
+ */ 
 				$postPost = $this->request->getPost();
 				$postPost["password"] = $generated;
 
-				// Intantiate user database
+/**
+ * Intantiate user database
+ * 
+ * 
+ */
 				$user = new Users();
 				
-				// Prepare fields, preventing SQL injection is handled automatically
+/**
+ * Prepare fields, preventing SQL injection is handled automatically
+ * 
+ * 
+ */ 
 				$user->first_usr = $postPost["name"];
 				$user->email_usr = $postPost["email"];
 				$user->pw_usr    = $postPost["password"];
 				
-				// Store and check for errors
+/**
+ * Store new user in database or return errors
+ * 
+ * 
+ */ 
 				echo '<div class="container">';
 				try {
 					$success = $user->create();
@@ -76,7 +118,7 @@ class SignupController extends ControllerBase
 				
 
 				echo "</div>";
-				//$this->view->disable();
+
 			else:
 				$this->flash->error('Captcha not completed. Please go back and try again. ');
 			endif;

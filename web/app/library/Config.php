@@ -1,7 +1,15 @@
 <?php
-//Configuration settings for local and remote servers
+/**
+ * Configuration settings for local and remote servers
+ * 
+ * 
+ */
 if ("127.6.239.129" == $_SERVER['SERVER_ADDR']) {
-	// OpenShift
+/**
+ * OpenShift settings
+ * 
+ * 
+ */ 
 	$settings = array(
 		"database" => array(
 			"host" => "127.6.239.130",//port 3306
@@ -13,7 +21,11 @@ if ("127.6.239.129" == $_SERVER['SERVER_ADDR']) {
 		"baseUri" => "/"
 	);
 } else {
-	// localhost
+/**
+ * Localhost settings
+ * 
+ * 
+ */ 
 	$settings = array(
 
 		"database" => array(
@@ -26,7 +38,11 @@ if ("127.6.239.129" == $_SERVER['SERVER_ADDR']) {
 				
 	);
 }
-
+/**
+ * Salt for password hashing
+ * 
+ * 
+ */ 
 $settings = array_merge($settings, array(
     "salt" => "The rain in Spain falls mainly in the plain."
     ));

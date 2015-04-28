@@ -1,5 +1,9 @@
 <?php
-
+/**
+ * NotFoundPlugin.php
+ * 
+ * Library of methods for handling site errors
+ */
 use Phalcon\Events\Event;
 use Phalcon\Mvc\User\Plugin;
 use Phalcon\Dispatcher;

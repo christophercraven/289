@@ -6,7 +6,11 @@
         <meta name="description" content="Web 289 Project"/>
         <meta name="author" content="Chris Craven" />
         
-        <link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" type="text/css" />
+        <link rel="stylesheet" href="/**
+ * 
+ * 
+ * 
+ */netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css" type="text/css" />
 
         <link rel="stylesheet" type="text/css" href="/289/web/css/style.css" />
     </head>
@@ -17,7 +21,11 @@
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="container-fluid">
-                        <a class="brand" href="http://beplace.com">
+                        <a class="brand" href="http:/**
+ * 
+ * 
+ * 
+ */beplace.com">
                             <img src="/img/logo-small-sp.png" alt="Logo Small Sp">
                         </a>
                         <div class="nav-collapse collapse">
@@ -26,8 +34,16 @@
                                 <li><a href="/documentation">Documentation</a></li>
                                 <li><a href="/support">Support</a></li>
                                 <li><a href="/donate">Donate</a></li>
-                                <li><a href="https://github.com/phalcon/cphalcon">Github</a></li>
-                                <li><a href="http://blog.phalconphp.com/">Blog</a></li>
+                                <li><a href="https:/**
+ * 
+ * 
+ * 
+ */github.com/phalcon/cphalcon">Github</a></li>
+                                <li><a href="http:/**
+ * 
+ * 
+ * 
+ */blog.phalconphp.com/">Blog</a></li>
                             </ul>
                         </div>
                     </div>

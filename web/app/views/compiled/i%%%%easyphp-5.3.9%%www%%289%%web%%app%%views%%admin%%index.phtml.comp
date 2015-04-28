@@ -5,11 +5,19 @@
 
 <h1>Admin dashboard</h1>
 <?php 
-// How many users are there?
+/**
+ * 
+ * 
+ * 
+ */ How many users are there?
 $users = Users::find();
 echo "Number of users in database: ", count($users), "\n";
 
-// Get and print virtual users ordered by name
+/**
+ * 
+ * 
+ * 
+ */ Get and print virtual users ordered by name
 $users = Users::find(array(
 
     "order" => "first_usr"

@@ -1,10 +1,14 @@
- 
 <?php
+/**
+ * Elements
+ *
+ * Library of navigation elements
+ */
 use Phalcon\Mvc\User\Component;
 /**
  * Elements
  *
- * Builds nav elements 
+ * array of navigation elements
  */
 class Elements extends Component
 {
@@ -89,6 +93,7 @@ class Elements extends Component
     }
     /**
      * Returns menu tabs
+	 *
      */
     public function getTabs()
     {

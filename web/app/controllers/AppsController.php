@@ -1,4 +1,15 @@
-<?php
+<?php    
+ /**
+ * Controller for Apps page
+ * 
+ * This returns a list of apps found in the database and displays a view of the list.
+ */ 
+ 
+ /**
+ * Include logger settings
+ * 
+ * 
+ */ 
 class AppsController extends ControllerBase
 
 {
@@ -9,14 +20,22 @@ class AppsController extends ControllerBase
 	}
 	public function indexAction()
 	{
-        //Setting variable for the view component
+/**
+ * Setting variable for the view component
+ * 
+ * 
+ */
         $this->view->apps = Apps::find();
 	}
 	public function registerAction()
 	{
 		$app = new Apps();
 		
-		//Store and check for errors
+/**
+ * Store and check for errors
+ * 
+ * 
+ */
 		$success = $app->save($this->request->getPost(), array('first_usr', 'email_usr', 'pw_usr'));
 		if ($success) {
 			echo "New app added!";

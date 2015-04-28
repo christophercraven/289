@@ -1,15 +1,27 @@
 <?php
-// index controller for About page
+/**
+ * Controller for the About page
+ * 
+ * 
+ */ 
 class AboutController extends ControllerBase
 {
-	// initialize and set title 
+/**
+ * Initialize and set title 
+ * 
+ * 
+ */ 
     public function initialize()
     {
         $this->tag->setTitle('About');
         parent::initialize();
     }
 	
-	// action function required
+/**
+ * Action method is purposely blank
+ * 
+ * 
+ */ 
 	public function indexAction()
 	{
 
