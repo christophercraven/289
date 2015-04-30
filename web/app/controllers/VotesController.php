@@ -1,5 +1,4 @@
 <?php
-
 /**
  * Controller for voting methods 
  * 
@@ -20,7 +19,7 @@ class VotesController extends ControllerBase
         parent::initialize();
     }
 /**
- * Returns index view
+ * Returns index view by default
  * 
  * 
  */	
