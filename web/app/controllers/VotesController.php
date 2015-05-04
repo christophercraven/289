@@ -20,8 +20,6 @@ class VotesController extends ControllerBase
     }
 /**
  * Returns index view by default
- * 
- * 
  */	
     public function indexAction()
     {

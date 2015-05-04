@@ -5,5 +5,25 @@
 <div class="container">
 
     <p>Your Project Information</p>
+    
+    
+    <ul class="app-listings">
+    <?php echo "<p>You created ". count($apps) ." apps:</p>" ; ?>
+    <?php foreach ($apps as $app) { ?>
+        <li>
+		<div class="icon">
+        <img src=<?php echo $app->icon_app; ?> />
+		</div>
+        <h2><?php echo $app->name_app; ?></h2>
+        <p><?php echo $app->tagline_app; ?></p>
+        <p><?php echo $app->creator_app_usr; ?></p>
+        
+        <p><?php echo $user; ?></p>
+        <p data-desc=<?php echo $app->desc_app; ?>></p>
+        <span>Votes:</span>
+        </li>
+    <?php } ?>
+
+    </ul>
         
 </div>

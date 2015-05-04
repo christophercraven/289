@@ -19,6 +19,7 @@ class SponsorsController extends ControllerBase
     public function indexAction()
     {
 		$sponsors = Sponsors::find();
+        $logo = 
 		$this->view->setVar("sponsors", $sponsors);
     }
 

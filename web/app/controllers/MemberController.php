@@ -5,7 +5,11 @@
  * 
  */ 
  
- 
+ /**
+ * Member dashboard class
+ * 
+ * 
+ */
 class MemberController extends ControllerBase
 {
 /**
@@ -18,11 +22,11 @@ class MemberController extends ControllerBase
         parent::initialize();
     }
 /**
- * Index method is purposely blank
- *
+ * Retrieves user's app project data and returns index view 
  */
     public function indexAction()
     {
+
     }
     
 /**
@@ -34,14 +38,10 @@ class MemberController extends ControllerBase
     {
 /**
  * Get session info
- * 
- * 
  */
         $auth = $this->session->get('auth');
 /**
  * Query the active user
- * 
- * 
  */
         $user = Users::findFirst($auth['id']);
         if ($user == false) {
@@ -74,14 +74,10 @@ class MemberController extends ControllerBase
     {
 /**
  * Get session info
- * 
- * 
  */
         $auth = $this->session->get('auth');
 /**
  * Query the active user
- * 
- * 
  */
         $user = Users::findFirst($auth['id']);
         $apps = Apps::findFirst($auth['id']);

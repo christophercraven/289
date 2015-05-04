@@ -4,9 +4,13 @@
 	{{ partial('layouts/member') }}
 <div class="container">
         
-    <p>Your Sponsorship Information</p>
-      
+    <p>Your Sponsors</p>
+    <ul>
 	{% for sponsor in sponsors %}
-		* Name: {{ sponsor.name_spo|e }}
+		<li>
+            Name: {{ sponsor.name_spo|e }}
+            <img src={{ sponsor.icon_app }} />
+        </li>
 	{% endfor %}
+    </ul>
 </div>

@@ -23,8 +23,21 @@ class TeamsController extends ControllerBase
  */ 	
     public function indexAction()
     {
-		$teams = Teams::find();
-		$this->view->setVar("teams", $teams);
+/**
+ * Get session info
+ */
+        $auth = $this->session->get('auth');
+/**
+ * Query the active user's apps
+ */
+       // $user = Users::findFirst($auth['id']);
+        $teams = Teams::find(array(
+            array( "creator_tea_usr" => $auth['id'] )
+        ));
+
+        $this->view->setVar("apps", $apps);
+        $this->view->setVar("user", $auth['id']);
+		
     }
 
 
