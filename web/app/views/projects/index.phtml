@@ -4,11 +4,21 @@
 	{{ partial('layouts/member') }}
 <div class="container">
 
-    <p>Your Project Information</p>
     
     
     <ul class="app-listings">
-    <?php echo "<p>You created ". count($apps) ." apps:</p>" ; ?>
+    <?php 
+		$count = count($apps);
+		
+		if ( $count > 1 ) {
+			echo "<p>You have created ". count($apps) ." apps:</p>" ; 
+		} elseif ( $count == 1 ) {
+			echo "<p>You have created ". count($apps) ." app:</p>" ;
+		} else {
+			echo "<p>You have not created any apps yet.</p>" ;
+		}
+	
+	?>
     {% for app in apps %}
         <li>
 		<div class="icon">
@@ -16,11 +26,13 @@
 		</div>
         <h2>{{ app.name_app }}</h2>
         <p>{{ app.tagline_app }}</p>
-        <p>{{ app.creator_app_usr }}</p>
-        
-        <p>{{ user }}</p>
         <p data-desc={{ app.desc_app }}></p>
-        <span>Votes:</span>
+        <!--<span>Votes: </span>-->
+		
+		<?php 
+			$link = 'projects/edit/'. $app->id_app . '/'; 
+			echo $this->tag->linkTo(array($link, 'Edit', 'class' => 'button'));
+		?>
         </li>
     {% endfor %}
 

@@ -1,5 +1,7 @@
 <?php       
 /**
+ * AdminController.php
+ * 
  * Controller for the Admin page 
  * 
  * Backend page for administrator access only. Provides high level access to database.

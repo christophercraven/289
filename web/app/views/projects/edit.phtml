@@ -1,0 +1,43 @@
+
+	{{ partial('layouts/member') }}
+<div class="container">
+<h3>App Profile Editor</h3>
+<div class="profile left">
+    {{ form('projects/save', 'id': 'projectForm', 'onbeforesubmit': 'return false') }}
+			{{ image( app.icon_app ) }}
+            <label for="name">App Name:</label>
+				{{ hidden_field("id", "value": app.id_app ) }}
+                {{ text_field("name", "size": "45", "class": "span6") }}
+                <div class="alert" id="name_alert">
+                    <strong>Warning!</strong> Please enter the app name
+                </div>
+            
+        
+        
+            <label for="tagline">Tagline/Slogan:</label>
+                {{ text_field("tagline", "size": "45", "class": "span6") }}
+                <div class="alert" id="tagline_alert">
+                    <strong>Warning!</strong> Please enter a tagline
+                </div>
+        
+            <label for="desc">Description:</label>
+                {{ text_area("desc", "cols": "45", "rows": "10") }}
+                <div class="alert" id="desc_alert">
+                    <strong>Warning!</strong> Please enter a description
+                </div>
+        
+            <label for="desc">Icon URL:</label>
+                {{ text_field("icon", "size": "45", "class": "span6") }}
+                <div class="alert" id="icon_alert">
+                    <strong>Warning!</strong> Please enter an icon URL
+                </div>
+			<div>
+            <input type="button" value="Update" class="btn button-primary btn-large btn-info" onclick="Project.validate()">
+            &nbsp;
+            {{ link_to('projects/index', 'Cancel', 'class': 'button') }}
+			</div>
+        </div>
+
+	{{ endform() }}
+</div>
+</div>

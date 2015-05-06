@@ -1,3 +1,10 @@
+/**
+ * utils.js
+ * JavaScript utilities for validating form data on beplace.com
+ *
+ * author: Chris Craven
+ * revised: 05/05/2015
+ */
 $(document).ready(function () {
 /**
  * first hide all the hard-coded error and alert divs
@@ -15,6 +22,8 @@ $(document).ready(function () {
  */ 
 	Init.submit("#registerForm");
 	Init.submit("#loginForm");
+	
+	Init.submit("#projectForm");
 	Init.warning();
 
 });
@@ -26,7 +35,8 @@ $(document).ready(function () {
 var Init = {
 	hide: function () {
 	    $("#loginForm .alert").hide();
-		$("#registerForm .alert").hide();
+		$("#registerForm .alert").hide();		
+		$("#projectForm .alert").hide();
 		$("div.profile .alert").hide();
 	},
 	submit: function (id) {
@@ -35,6 +45,7 @@ var Init = {
 			if ("#registerForm" == id) Register.validate();
 			else if ("#loginForm"    == id) Login.validate();
 			else if ("#profileForm"  == id) Profile.validate();
+			else if ("#projectForm"  == id) Project.validate();
 		}) 
 	},
 	move: function () {
@@ -50,12 +61,32 @@ var Init = {
 	
 	
 }
+/**
+ * Project form validation
+ * 
+ */
+var Project = {
 
+    validate: function () {
+		var valid = true;
+		$("input[type=text], textarea").each(function(){
+			if (Empty.check(this.id)) {
+				valid = false;
+				return false;
+			}
+		});
+        if ( valid ) $("#projectForm")[0].submit();
+    }
+}
+/**
+ * Profile form validation
+ * 
+ */
 var Profile = {
     check: function (id) {
         if ($.trim($("#" + id)[0].value) != 'demo@demo.com') {
             $("#" + id)[0].focus();
-            $("#" + id + "_alert").html('<strong>Sorry!</strong> Demo account cannot be changed at this time');
+            $("#" + id + "_alert").html('<strong>Sorry!</strong> Demo account is protected.');
             $("#" + id + "_alert").show();
 
             return false;
@@ -70,13 +101,19 @@ var Profile = {
         if (Empty.check("email")) {
             return false;
         }
-        if (Profile.check("email") == false) {
+        if (Email.check("email") == false) {
+		
+			$("#email_alert").show();
+			console.log("bad email bro");
             return false;
         }
         $("#profileForm")[0].submit();
     }
-};
-
+}
+/**
+ * Registration form validation
+ * 
+ */
 var Register = {
     validate: function () {
 	console.log('register form activated');
@@ -89,9 +126,11 @@ var Register = {
         if (Empty.check("email")) {
             return false;
         }
-      /*   if (Empty.check("password")) {
+        if ( false == Email.check("email") ) {
+		
+			$("#email_alert").show();
             return false;
-        } */
+        } 
 /*         if ($("#password")[0].value != $("#repeatPassword")[0].value) {
             $("#repeatPassword")[0].focus();
             $("#repeatPassword_alert").show();
@@ -121,20 +160,32 @@ var Login = {
 }
 
 /**
- * check if text field is empty or not
+ * Check if text field is empty or not
  *  
  */ 
 var Empty = {
 	check: function (id) {
-	console.log(id, "-> Empty checking");
+		console.log(id, "-> Empty checking");
 		if ($.trim($("#" + id)[0].value) == '') {
 			$("#" + id)[0].focus();
 			$(".alert").hide();
 			$("#" + id + "_alert").show();
-            console.log("#" + id + "_alert is empty");
+            console.log("!alert! #" + id + " is empty");
 			return true;
 		};
-	return false;
+		
+		return false;
+	}
+}
+
+/**
+ * Check if email fits the pattern or not
+ *  
+ */ 
+var Email = {
+	check: function(emailAddress){
+		//var pattern = new RegExp(/^[\w-]+(?:\.[\w-]+)*@(?:[\w-]+\.)+[a-zA-Z]{2,7}$/,'i');
+		return /^.+@.+\..+$/.test($("#"+ emailAddress)[0].value);
 	}
 }
 

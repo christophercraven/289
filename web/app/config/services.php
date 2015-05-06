@@ -29,11 +29,7 @@ $di['view'] = function() use ($config) {
 					'compiledPath'      => __DIR__ . '/../cache/volt/',
 					'compiledExtension' => '.php',
 					'compiledSeparator' => '_',
-					/**
- * 
- * 
- * 
- */'compileAlways'     => true
+					'compileAlways'     => true
 				)
 			);
 			return $volt;

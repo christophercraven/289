@@ -23,7 +23,7 @@
             </div>
         </div>
         <div class="clearfix">
-            <input type="button" value="Update" class="btn btn-primary btn-large btn-info" onclick="Profile.validate()">
+            <input type="button" value="Update" class="btn button-primary btn-large btn-info" onclick="Profile.validate()">
             &nbsp;
             <?php echo $this->tag->linkTo(array('member/index', 'Cancel', 'class' => 'button')); ?>
         </div>

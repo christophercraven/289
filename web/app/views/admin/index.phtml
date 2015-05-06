@@ -22,6 +22,7 @@ $users = Users::find(array(
 <table><tr><th>First Name</th><th>Email</th><th></th></tr>
 <?php
 foreach ($users as $user) {
+	if ( "admin@admin.com" == $user->email_usr ) continue;
     echo "<tr><td>", $user->first_usr, "</td><td>", $user->email_usr, "</td>";
     echo "<td>";
     echo $this->tag->linkTo(array('admin/edit/user/'. $user->id_usr . '/', 'Edit', 'class' => 'button'));
