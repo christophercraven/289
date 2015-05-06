@@ -22,7 +22,7 @@
     <?php foreach ($apps as $app) { ?>
         <li>
 		<div class="icon">
-        <img src=<?php echo $app->icon_app; ?> />
+        <img src=<?php echo $this->url->get($app->icon_app); ?> />
 		</div>
         <h2><?php echo $app->name_app; ?></h2>
         <p><?php echo $app->tagline_app; ?></p>

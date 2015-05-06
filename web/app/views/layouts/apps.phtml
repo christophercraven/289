@@ -4,7 +4,7 @@
     {% for app in apps %}
         <li>
 		<div class="icon">
-        <img src={{ app.icon_app }} />
+        <img src={{ url( app.icon_app ) }} />
 		</div>
         <h2>{{ app.name_app }}</h2>
         <p>{{ app.tagline_app }}</p>

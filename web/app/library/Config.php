@@ -35,7 +35,7 @@ if ("127.6.239.129" == $_SERVER['SERVER_ADDR']) {
 			"password" => "",
 			"dbname" => "db289"
 		),
-		"baseUri" => "/289/web//"
+		"baseUri" => "/289/web/"
 				
 	);
 }
