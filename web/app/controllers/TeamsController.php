@@ -35,7 +35,7 @@ class TeamsController extends ControllerBase
             array( "creator_tea_usr" => $auth['id'] )
         ));
 
-        $this->view->setVar("apps", $apps);
+        //$this->view->setVar("apps", $apps);
         $this->view->setVar("user", $auth['id']);
 		
     }

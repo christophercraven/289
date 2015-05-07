@@ -5,12 +5,14 @@
 <div class="container">
         
     <p>Your Sponsors</p>
-    <ul>
-	<?php foreach ($sponsors as $sponsor) { ?>
-		<li>
-            Name: <?php echo $this->escaper->escapeHtml($sponsor->name_spo); ?>
-            <img src=<?php echo $sponsor->icon_app; ?> />
-        </li>
-	<?php } ?>
-    </ul>
+
+			<ul>
+		   	<?php foreach ($sponsors as $sponsor) { ?>
+				<li>
+					<?php echo $this->escaper->escapeHtml($sponsor->name_spo); ?>
+				</li>
+			
+			<?php } ?>
+			</ul>
+
 </div>

@@ -12,6 +12,9 @@
  */
 class Teams extends \Phalcon\Mvc\Model
 {
+	public $app_app_id_app;
+	public $user_usr_id_usr;
+	public $types_typ_id_typ;
 /**
  * Assigns database source table to this class
  * 
@@ -19,7 +22,7 @@ class Teams extends \Phalcon\Mvc\Model
  */  
     public function getSource()
     {
-        return "teams_tea";
+        return "app_app_has_user_usr";
     }
 
 }

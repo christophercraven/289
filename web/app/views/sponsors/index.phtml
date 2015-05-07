@@ -5,12 +5,14 @@
 <div class="container">
         
     <p>Your Sponsors</p>
-    <ul>
-	{% for sponsor in sponsors %}
-		<li>
-            Name: {{ sponsor.name_spo|e }}
-            <img src={{ sponsor.icon_app }} />
-        </li>
-	{% endfor %}
-    </ul>
+
+			<ul>
+		   	{% for sponsor in sponsors %}
+				<li>
+					{{ sponsor.name_spo|e }}
+				</li>
+			
+			{% endfor %}
+			</ul>
+
 </div>

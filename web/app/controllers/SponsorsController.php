@@ -1,4 +1,9 @@
 <?php
+/**
+ * SponsorsController.php
+ * 
+ * Controller for sponsor information
+ */ 
 class SponsorsController extends ControllerBase
 {
 /**
@@ -18,9 +23,32 @@ class SponsorsController extends ControllerBase
  */ 	
     public function indexAction()
     {
-		$sponsors = Sponsors::find();
-        $logo = 
+		/**
+		 * Get session info
+		 */
+        $auth = $this->session->get('auth');
+		/**
+		 * Query the active user's apps
+		 */
+		$apps = Apps::find(array(
+			"conditions" => "creator_app_usr = ?1",
+			"bind" => array( 1 => $auth['id'] )
+		));
+		
+		foreach ($apps as $app) {
+			$sponsor = iterator_to_array(Sponsors::find(array( 
+				"id_spo" => $app->sponsor_app_spo
+			)));
+			
+			$sponsors = array_unique(array_merge($sponsor), SORT_REGULAR);
+		}
+		
+		//$sponsors = Sponsors::find();
+        //$logos = Images::find();
+		//$this->view->disable();
+		$this->view->setVar("apps", $apps);
 		$this->view->setVar("sponsors", $sponsors);
+		//$this->view->setVar("logos", $logos);
     }
 
 
