@@ -34,18 +34,21 @@ foreach ($users as $user) {
 
 
 	<h2>Add new user with this form:</h2>
-	{{ form("admin/register") }}
+	{{ form("admin/register", 'id': 'registerForm', 'onbeforesubmit': 'return false') }}
 		<div>
 		<label for='name'>First Name</label>
-			{{ text_field("first_usr") }}
+			{{ text_field("name") }}
+			<p class="alert" id="name_alert"> Please enter the user's first name.</p>
 		</div>
 		<div>
 		<label for='email'>E-Mail</label>
-			{{ text_field("email_usr") }}
+			{{ text_field("email") }}
+			<p class="alert" id="email_alert"> Please enter the user's valid e-mail.</p>
 		</div>
 
 		<label for='password'>Password</label>	
-			{{ text_field("pw_usr", "value" : "password") }}
+			{{ text_field("password", "value" : "password") }}
+			<p class="alert" id="email_alert"> Please enter the user's password.</p>
 
 		<div> 
 		 {{ submit_button("Enter") }} 

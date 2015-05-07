@@ -524,10 +524,10 @@ CREATE TABLE IF NOT EXISTS `users_usr` (
 --
 
 INSERT INTO `users_usr` (`id_usr`, `first_usr`, `last_usr`, `address_usr`, `level_usr_lvl`, `email_usr`, `type_usr_typ`, `pw_usr`, `update_usr`, `regdate_usr`, `active_usr`, `username_usr`) VALUES
-(1, 'Demo user', NULL, NULL, NULL, 'demo@beplace.com', NULL, 'beplace', '2015-03-03 20:15:25', '2015-03-03 15:15:25', 1, 'demo'),
-(2, 'James', NULL, NULL, NULL, 'james@bond.com', NULL, 'password', NULL, NULL, 1, NULL),
-(3, 'Abe', NULL, NULL, NULL, 'abe@lincoln.com', NULL, 'password', NULL, NULL, 1, NULL),
-(4, 'George', NULL, NULL, NULL, 'george@washington.com', NULL, 'password', NULL, NULL, 1, NULL),
+(1, 'Demo user', NULL, NULL, NULL, 'demo@beplace.com', NULL, '$2a$10$WJJUwyYkwHHilMVZfefu9euHLKhF8E09EAH3eA/ncP/Tzc2dkczCy', '2015-03-03 20:15:25', '2015-03-03 15:15:25', 1, 'demo'),
+(2, 'James', NULL, NULL, NULL, 'james@bond.com', NULL, '$2a$10$EH5JEDcyaCr0ewDbopsrWe8B5MsVu7jxLtGNqduiejUNOJn4FZIxS', NULL, NULL, 1, NULL),
+(3, 'Abe', NULL, NULL, NULL, 'abe@lincoln.com', NULL, '$2a$10$jOJASi3qqipSybk.s6JnxuKCRc/frBlnbZbmpngJ..lgK44tqSdWy', NULL, NULL, 1, NULL),
+(4, 'George', NULL, NULL, NULL, 'george@washington.com', NULL, '$2a$10$Oa2wOs5sCWuzCGdNkl7w8uwxy9MCEDgivpqszgR1Cg5gDIrkZqy1O', NULL, NULL, 1, NULL),
 (6, 'Demo user', NULL, NULL, 0, 'demo@demo.com', NULL, '$2a$10$MijokKQ0k8NPYc0bcKL.Ievnsw7GlcZkbFqCuQHOlDMNwocgE1pz2', NULL, NULL, 1, NULL),
 (7, 'Admin', NULL, NULL, 10, 'admin@admin.com', NULL, '$2a$10$v4j1ZbcJIvmBNL//4UIiiuOJLHITtXyR86CUbNEetc60VPKI7vhse', NULL, NULL, 1, NULL);
 

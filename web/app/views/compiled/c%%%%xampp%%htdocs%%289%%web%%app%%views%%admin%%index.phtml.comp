@@ -34,18 +34,21 @@ foreach ($users as $user) {
 
 
 	<h2>Add new user with this form:</h2>
-	<?php echo $this->tag->form(array('admin/register')); ?>
+	<?php echo $this->tag->form(array('admin/register', 'id' => 'registerForm', 'onbeforesubmit' => 'return false')); ?>
 		<div>
 		<label for='name'>First Name</label>
-			<?php echo $this->tag->textField(array('first_usr')); ?>
+			<?php echo $this->tag->textField(array('name')); ?>
+			<p class="alert" id="name_alert"> Please enter the user's first name.</p>
 		</div>
 		<div>
 		<label for='email'>E-Mail</label>
-			<?php echo $this->tag->textField(array('email_usr')); ?>
+			<?php echo $this->tag->textField(array('email')); ?>
+			<p class="alert" id="email_alert"> Please enter the user's valid e-mail.</p>
 		</div>
 
 		<label for='password'>Password</label>	
-			<?php echo $this->tag->textField(array('pw_usr', 'value' => 'password')); ?>
+			<?php echo $this->tag->textField(array('password', 'value' => 'password')); ?>
+			<p class="alert" id="email_alert"> Please enter the user's password.</p>
 
 		<div> 
 		 <?php echo $this->tag->submitButton(array('Enter')); ?> 

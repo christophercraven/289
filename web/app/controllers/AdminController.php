@@ -170,6 +170,13 @@ class AdminController extends ControllerBase
  * 
  * 
  */
+
+		$postPost = array(
+			'first_usr' => $postPost['name'],
+			'email_usr' => $postPost['email'],
+			'pw_usr'    => $postPost['password']
+		);
+		 
         try {
             $success = $user->create($postPost, array('first_usr', 'email_usr', 'pw_usr'));
             if ($success) {
@@ -179,7 +186,7 @@ class AdminController extends ControllerBase
             $errorMessage = $e->getMessage();
             
             if ( strpos( $errorMessage, 'uplicate' )) {
-                $this->flash->error("Account already exists: " . $postPost["email_usr"] . "<p>" . $errorMessage . "</p>"); 
+                $this->flash->error("Account already exists: " . $postPost["email"] . "<p>" . $errorMessage . "</p>"); 
                 
             } else {            
                 $this->flash->notice( "Sorry, the following problems occurred: " );
