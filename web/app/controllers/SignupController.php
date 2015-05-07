@@ -1,6 +1,14 @@
 <?php
 /**
- * Member sign up controller
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: SignupController.php
+ * Description: 
+ * Controls the creation of new accounts
+ */
+ 
+/**
+ * Member sign up controller class
  * 
  * 
  */ 
@@ -17,7 +25,7 @@ class SignupController extends ControllerBase
         parent::initialize();
     }
 /**
- * Method purposely blank
+ * Automatically calls the sign up view
  * 
  */	
 	public function indexAction()

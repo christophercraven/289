@@ -1,9 +1,13 @@
 <?php
 /**
- * Configuration of application services
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: services.php
+ * Description: 
+ * Initializes configuration of application services
  * 
  * Sets up view settings for compiled files, their extensions and paths, 
- * generates urls, and assigns database configuration
+ * generates URLs, and assigns database configuration
  */
 use Phalcon\Mvc\View,
 	Phalcon\Mvc\Url as UrlResolver,
@@ -15,6 +19,8 @@ $di = new FactoryDefault();
 
 /**
  * Sets the view component
+ * 
+ * @return html
  */
 $di['view'] = function() use ($config) {
 	$view = new View();
@@ -29,7 +35,7 @@ $di['view'] = function() use ($config) {
 					'compiledPath'      => __DIR__ . '/../cache/volt/',
 					'compiledExtension' => '.php',
 					'compiledSeparator' => '_',
-					'compileAlways'     => true
+					//'compileAlways'     => true
 				)
 			);
 			return $volt;
@@ -41,6 +47,8 @@ $di['view'] = function() use ($config) {
 
 /**
  * The URL component is used to generate all kind of urls in the application
+ *
+ * @return URL string
  */
 $di['url'] = function() use ($config) {
 	$url = new UrlResolver();
@@ -50,6 +58,8 @@ $di['url'] = function() use ($config) {
 
 /**
  * Database connection is created based in the parameters defined in the configuration file
+ *
+ * @return object
  */
 $di['db'] = function() use ($config) {
 	return new DbAdapter(array(

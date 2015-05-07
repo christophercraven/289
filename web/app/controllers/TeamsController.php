@@ -1,9 +1,18 @@
 <?php
 /**
- * Controller for teams information 
- * 
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: TeamsController.php
+ * Description: 
+ * Controller for teams information on member dashboard page
  * 
  */ 
+ 
+/**
+ * Teams controller for member dashboard
+ * 
+ * 
+ */  
 class TeamsController extends ControllerBase
 {
 /**

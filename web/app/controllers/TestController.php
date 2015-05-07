@@ -1,6 +1,14 @@
 <?php
 /**
- * Controller for testing methods 
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: TestController.php
+ * Description: 
+ * Controller for testing methods during development
+ */
+ 
+/**
+ * Test controller class for testing methods 
  * 
  * 
  */ 

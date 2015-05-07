@@ -1,9 +1,12 @@
 <?php
 /**
- * NotFoundPlugin.php
- * 
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: NotFoundPlugin.php
+ * Description: 
  * Library of methods for handling site errors
  */
+ 
 use Phalcon\Events\Event;
 use Phalcon\Mvc\User\Plugin;
 use Phalcon\Dispatcher;
@@ -19,7 +22,7 @@ class NotFoundPlugin extends Plugin
 {
 
 	/**
-	 * This action is executed before execute any action in the application
+	 * This action is executed before any action in the application
 	 *
 	 * @param Event $event
 	 * @param Dispatcher $dispatcher

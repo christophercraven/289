@@ -1,8 +1,17 @@
 <?php
 /**
- * SponsorsController.php
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: SponsorsController.php
+ * Description: 
  * 
- * Controller for sponsor information
+ * Controller for sponsor information on member dashboard page
+ */ 
+ 
+/**
+ * Sponsors controller class for member dashboard
+ * 
+ * 
  */ 
 class SponsorsController extends ControllerBase
 {

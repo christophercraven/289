@@ -1,7 +1,9 @@
 <?php
 /**
- * Sponsors.php
- *
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Sponsors.php
+ * Description:
  * Model for accessing the sponsors_spo database table.
  */ 
  

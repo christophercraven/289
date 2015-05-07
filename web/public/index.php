@@ -1,5 +1,13 @@
 <?php
 /**
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: index.php
+ * Description: 
+ * This file is the main site bootstrap and dependency injector
+ */
+ 
+/**
  * First load configuration settings
  * 
  * 
@@ -30,7 +38,7 @@ try {
 /**
  * Register the events manager
  * 
- * 
+ * @return object
  */ 
 	
 	$di->set('dispatcher', function() use ($di) {
@@ -51,7 +59,7 @@ try {
 /**
  * Setup the database service
  * 
- * 
+ * @return object
  */ 
 	$di->set('db', function() use ($config) {
 
@@ -66,7 +74,7 @@ try {
 /**
  * Register volt as a service
  * 
- * 
+ * @return object
  */
 	$di->set('voltService', function($view, $di) {
 
@@ -83,7 +91,7 @@ try {
 /**
  * Setup the view component
  * 
- * 
+ * @return object
  */
 	$di->set('view', function(){
 		$view = new \Phalcon\Mvc\View();
@@ -98,7 +106,7 @@ try {
 /**
  * Setup a base URI 
  * 
- * 
+ * @return object
  */
 	$di->set('url', function() use ($config) {
 		$url = new \Phalcon\Mvc\Url();
@@ -110,7 +118,7 @@ try {
 /**
  * Start the session when requested
  * 
- * 
+ * @return object
  */
 	$di->set('session', function() {
 		$session = new \Phalcon\Session\Adapter\Files();
@@ -122,7 +130,7 @@ try {
 /**
  * Register the flash service with custom CSS classes
  * 
- * 
+ * @return object
  */
 	$di->set('flash', function(){
 		return new Phalcon\Flash\Session(array(
@@ -135,7 +143,7 @@ try {
 /**
  * Set encryption work factor
  * 
- * 
+ * @return object
  */  
     $di->set('security', function(){
         $security = new Phalcon\Security();
@@ -151,7 +159,7 @@ try {
 /**
  * Register a user menu component
  * 
- * 
+ * @return object
  */
 	$di->set('elements', function(){
 		return new Elements();

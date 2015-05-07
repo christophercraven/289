@@ -1,7 +1,9 @@
 <?php
 /**
- * Generator.php
- * 
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Generator.php
+ * Description: 
  * Sets secrets, hash method, generates passwords. 
  */
  
@@ -33,7 +35,7 @@ $option = array(
     );
 	
 /**
- * Generate random passwords from word database
+ * Hash the random passwords with high encryption
  * 
  * 
  */

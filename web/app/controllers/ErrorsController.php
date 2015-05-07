@@ -1,6 +1,14 @@
 <?php
 /**
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: ErrorsController.php
+ * Description: 
  * Controller for error pages
+ */
+ 
+/**
+ * Controller class for error pages
  * 
  * 
  */ 
@@ -15,9 +23,9 @@ class ErrorsController extends ControllerBase
     {
         $this->tag->setTitle('Oops!');
         parent::initialize();
-    		$eventsManager = new Phalcon\Events\Manager();
+    	$eventsManager = new Phalcon\Events\Manager();
 /**
- * Listen to all the database events
+ * Check for database events and echo errors if any
  * 
  * 
  */

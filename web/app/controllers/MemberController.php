@@ -1,12 +1,16 @@
 <?php
 /**
- * Member control panel controller
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: MemberController.php
+ * Description: 
+ * Member control panel/dashboard page controller
  * 
  * 
  */ 
  
  /**
- * Member dashboard class
+ * MemberController member dashboard page class
  * 
  * 
  */
@@ -26,7 +30,7 @@ class MemberController extends ControllerBase
  */
     public function indexAction()
     {
-
+        //return $this->_forward('projects/index');
     }
     
 /**
@@ -68,7 +72,7 @@ class MemberController extends ControllerBase
 /**
  * Edit the user app project profiles
  * 
- * First verify authorized user, the update database with changes
+ * First verify authorized user, then update database with changes if user demands it
  */ 
     public function projectsAction()
     {

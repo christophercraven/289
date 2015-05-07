@@ -1,6 +1,14 @@
 <?php
 /**
- * Controller for home page
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: IndexController.php
+ * Description: 
+ * Controls the main site page
+ */
+ 
+/**
+ * Controller class for site home page
  * 
  * 
  */ 

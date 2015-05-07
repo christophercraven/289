@@ -1,6 +1,14 @@
 <?php
 /**
- * Controller for the About page
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: AboutController.php
+ * Description: 
+ * Sets the title and routes to the about page.
+ */
+ 
+/**
+ * Controller class for the About page
  * 
  * 
  */ 
@@ -18,7 +26,7 @@ class AboutController extends ControllerBase
     }
 	
 /**
- * Action method is purposely blank
+ * Action method calls the view automatically
  * 
  * 
  */ 

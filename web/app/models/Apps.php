@@ -1,11 +1,13 @@
 <?php
 /**
- * Apps.php
- *
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Apps.php
+ * Description: 
  * Model for accessing the apps_app database table.
- * Apps are the same as "Projects"
- * 
- */ 
+ * For member purposes, "Apps" are viewed under the "Projects" menu
+ */
+
  
 /**
  * Apps class assigns database to this class

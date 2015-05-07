@@ -1,10 +1,12 @@
 <?php
 /**
- * Config.php
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Config.php
+ * Description: 
  * Configuration settings for local and remote servers
- * 
- * 
  */
+
 if ("127.6.239.129" == $_SERVER['SERVER_ADDR']) {
 /**
  * OpenShift settings

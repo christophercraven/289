@@ -1,0 +1,10 @@
+
+
+
+<div class="section">
+    
+
+
+    <?php echo $this->partial('layouts/apps'); ?>
+    
+</div>

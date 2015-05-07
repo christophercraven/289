@@ -1,7 +1,9 @@
 <?php
 /**
- * Images.php
- *
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Images.php
+ * Description: 
  * Model for accessing the images_img database table.
  */ 
  

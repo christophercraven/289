@@ -1,11 +1,17 @@
 <?php
 /**
- * Controller for voting methods 
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: VotesController.php
+ * Description: 
+ * Controller for voting page on member dashboard
+ */
+ 
+/**
+ * Votes controller class for voting methods 
  * 
  * 
  */ 
-
-
 class VotesController extends ControllerBase
 {
 /**

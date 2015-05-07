@@ -1,9 +1,12 @@
 <?php
 /**
- * Elements
- *
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Elements.php
+ * Description: 
  * Library of navigation elements
  */
+ 
 use Phalcon\Mvc\User\Component;
 /**
  * Elements

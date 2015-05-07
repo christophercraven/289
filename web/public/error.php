@@ -1,4 +1,11 @@
 <!DOCTYPE html>
+<!-- 
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: error.php
+ * Description: 
+ * This error page is viewed only when main bootstrap fails
+-->
 <html lang="en">
     <head>
         <meta charset="utf-8">

@@ -1,7 +1,9 @@
 <?php
 /**
- * Colors.php
- *
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Colors.php
+ * Description: 
  * Model for accessing the colors_col database table.
  * 
  */ 

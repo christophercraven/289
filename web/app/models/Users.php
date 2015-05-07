@@ -1,7 +1,9 @@
 <?php
 /**
- * Users.php
- *
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Users.php
+ * Description:
  * Model for accessing the users_usr database table.
  */ 
  

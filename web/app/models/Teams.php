@@ -1,8 +1,10 @@
 <?php
 /**
- * Teams.php
- *
- * Model for accessing the votes_vot database table.
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: Teams.php
+ * Description:
+ * Model for accessing the app_app_has_user_usr database table.
  */ 
  
 /**

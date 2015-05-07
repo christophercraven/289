@@ -1,12 +1,19 @@
 <?php
 /**
- * Member projects panel controller
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: ProjectsController.php
+ * Description: 
+ * Member projects dashboard page controller
  * 
  * 
  */ 
 
 use Phalcon\Mvc\Model\Query;
-		
+/**
+ * Class for member projects dashboard page
+ *
+ */
 class ProjectsController extends ControllerBase
 {
 /**
@@ -51,7 +58,7 @@ class ProjectsController extends ControllerBase
 /**
  * Allows editing the active app profile
  * 
- * First checks if authorized, then commits changes to database.
+ * First checks if authorized, then populates form with chosen app.
  */
     public function editAction()
     {
@@ -78,7 +85,7 @@ class ProjectsController extends ControllerBase
             $this->tag->setDefault('icon', $app->icon_app);
         } 
     }
-	/**
+/**
  * Allows editing the active app profile
  * 
  * First checks if authorized, then commits changes to database.

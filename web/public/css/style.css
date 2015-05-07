@@ -102,7 +102,11 @@ ul.app-listings li .icon{
 	display: inline-block;
 }
 
-ul.app-listings li img{
+ul.app-listings li img, .image-sizer img{
+	width: 100%;
+}
+
+.image-sizer { 
 	width: 100%;
 }
 /* Sections

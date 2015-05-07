@@ -1,6 +1,14 @@
 <?php
 /**
- * LoginController
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: LoginController.php
+ * Description: 
+ * Allows user authentication
+ */
+ 
+/**
+ * LoginController class
  *
  * Allows user authentication
  */

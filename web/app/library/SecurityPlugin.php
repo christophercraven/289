@@ -1,5 +1,13 @@
 <?php
 /**
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: SecurityPlugin.php
+ * Description: 
+ * Handles access control list (ACL) for various user levels
+ */
+ 
+/**
  * SecurityPlugin.php
  * 
  * Library of methods for handling security
@@ -27,8 +35,6 @@ class SecurityPlugin extends Plugin
 	 */
 	public function getAcl()
 	{
-
-		//throw new \Exception("something");
 
 		if (!isset($this->persistent->acl)) {
 
@@ -111,7 +117,7 @@ class SecurityPlugin extends Plugin
 			}
 
 /**
- * Grant acess to private area to role Users 
+ * Grant access to private area to role Users 
  * 
  * 
  */
@@ -123,7 +129,7 @@ class SecurityPlugin extends Plugin
 			}
 			
 /**
- * Grant acess to admin area to role Admin 
+ * Grant access to admin area to role Admin 
  * 
  * 
  */
@@ -134,7 +140,7 @@ class SecurityPlugin extends Plugin
 			}
 
 /**
- * The acl is stored in session, APC would be useful here too
+ * The ACL is stored in session, APC cache would be useful here too
  * 
  * 
  */

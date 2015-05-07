@@ -1,0 +1,31 @@
+
+<?php echo $this->getContent(); ?>
+
+
+<div class="profile left">
+    <?php echo $this->tag->form(array('member/profile', 'id' => 'profileForm', 'onbeforesubmit' => 'return false')); ?>
+        <div class="clearfix">
+            <label for="name">First Name:</label>
+            <div class="input">
+                <?php echo $this->tag->textField(array('name', 'size' => '30', 'class' => 'span6')); ?>
+                <div class="alert" id="name_alert">
+                    <strong>Warning!</strong> Please enter your first name
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <label for="email">Email Address:</label>
+            <div class="input">
+                <?php echo $this->tag->textField(array('email', 'size' => '30', 'class' => 'span6')); ?>
+                <div class="alert" id="email_alert">
+                    <strong>Warning!</strong> Please enter your email
+                </div>
+            </div>
+        </div>
+        <div class="clearfix">
+            <input type="button" value="Update" class="btn button-primary btn-large btn-info" onclick="Profile.validate()">
+            &nbsp;
+            <?php echo $this->tag->linkTo(array('member/index', 'Cancel', 'class' => 'button')); ?>
+        </div>
+    </form>
+</div>

@@ -1,25 +1,31 @@
-<?php       
+<?php      
 /**
- * AdminController.php
- * 
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: AdminController.php
+ * Description: 
  * Controller for the Admin page 
  * 
  * Backend page for administrator access only. Provides high level access to database.
  */ 
 
 /**
- * Include logger settings
- * 
- * 
+ * Include logger settings for debugging
  */ 
 require "../app/library/Logger.php";
+
 /**
- * Initialize page and set title
+ * Class to initialize page and set title
  * 
  * 
  */ 
 class AdminController extends ControllerBase
 {
+/**
+ * Initialize and set title
+ * 
+ * 
+ */ 
 	public function initialize()
 	{
 		$this->tag->setTitle('Admin');
@@ -27,7 +33,7 @@ class AdminController extends ControllerBase
 	}
 	
 /**
- * Edit user data and change passwords
+ * Forwards to view to edit user data and change passwords
  * 
  * 
  */     
@@ -38,7 +44,7 @@ class AdminController extends ControllerBase
 	}
     
 /**
- * Edit user data and change passwords
+ * Enables user data editing by pre-populating form fields
  * 
  * 
  */ 
@@ -73,8 +79,8 @@ class AdminController extends ControllerBase
 
 /**
  * Save changes to user data 
+ *
  */
-	
     public function saveAction()
 	{
         $param = $this->request->get();

@@ -1,0 +1,41 @@
+
+
+
+	<?php echo $this->partial('layouts/member'); ?>
+<div class="container">
+
+    
+    
+    <ul class="app-listings">
+    <?php 
+		$count = count($apps);
+		
+		if ( $count > 1 ) {
+			echo "<p>You have created ". count($apps) ." apps:</p>" ; 
+		} elseif ( $count == 1 ) {
+			echo "<p>You have created ". count($apps) ." app:</p>" ;
+		} else {
+			echo "<p>You have not created any apps yet.</p>" ;
+		}
+	
+	?>
+    <?php foreach ($apps as $app) { ?>
+        <li>
+		<div class="icon">
+        <img src=<?php echo $this->url->get($app->icon_app); ?> />
+		</div>
+        <h2><?php echo $app->name_app; ?></h2>
+        <p><?php echo $app->tagline_app; ?></p>
+        <p data-desc=<?php echo $app->desc_app; ?>></p>
+        <!--<span>Votes: </span>-->
+		
+		<?php 
+			$link = 'projects/edit/'. $app->id_app . '/'; 
+			echo $this->tag->linkTo(array($link, 'Edit', 'class' => 'button'));
+		?>
+        </li>
+    <?php } ?>
+
+    </ul>
+        
+</div>

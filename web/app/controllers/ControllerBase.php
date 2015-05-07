@@ -1,12 +1,19 @@
 <?php
 /**
- * Controller base template
+ * Author: Chris Craven
+ * Revision date: 05/07/2015
+ * File name: ControllerBase.php
+ * Description: 
+ * All the other controllers are based on this one.
+ */
+
+use Phalcon\Flash;
+use Phalcon\Session;
+/**
+ * Controller base template class
  * 
  * All controllers are based on this.
  */ 
-use Phalcon\Flash;
-use Phalcon\Session;
-
 class ControllerBase extends \Phalcon\Mvc\Controller
 {
 /**
@@ -21,7 +28,7 @@ class ControllerBase extends \Phalcon\Mvc\Controller
 /**
  * Forwards parsed URI
  * 
- * 
+ * @return HTTP response
  */ 
     protected function forward($uri)
     {

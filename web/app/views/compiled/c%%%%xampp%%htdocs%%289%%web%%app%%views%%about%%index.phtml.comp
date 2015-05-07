@@ -1,0 +1,63 @@
+
+
+
+
+<div class="container">
+	<h1>About</h1>
+
+</div>
+<div class="section section-heading">
+	<div class="container">
+	<h2>
+	Apps.Beplace offers you a unique experience as an app user or an app developer.
+	</h2>
+	</div>
+</div>
+
+	<div class="container">
+	<div class="image-sizer">
+		<img src=<?php echo $this->url->get('img\users4505281019_2787fe1d4e_z.jpg'); ?> />
+	</div>
+	<h2>For app fans</h2>
+	<p>
+	You can participate in the app creation process like never before by up-voting your favorite apps or down-voting the bad ones. Follow your favorite app developers to see what they've going to create next, and be one of the first to test out exclusive new cutting-edge apps.
+	</p>
+	</div>
+
+	<div class="container">
+	<div class="image-sizer">
+		<img src=<?php echo $this->url->get('img\users4505281019_2787fe1d4e_z.jpg'); ?> />
+	</div>
+	<h2>For sponsors</h2>
+	<p>
+	Businesses can use BePlace to promote their brand, share information about their products and services, find skilled developers, and engage the audience by sponsoring apps and developers, kind of like having your logo emblazoned on a race car.
+	</p>
+	</div>
+
+	<div class="container">
+	<div class="image-sizer">
+		<img src=<?php echo $this->url->get('img\users4505281019_2787fe1d4e_z.jpg'); ?> />
+	</div>
+	<h2>For developers</h2>
+	<p>
+	Developers can use BePlace to promote their apps, their skills, and connect with others to find team mates or gain new sponsors and fans. Getting beta testers is a great way to help you promote your business as well as fix bugs.
+	</p>
+	</div>
+
+<div class="section section-heading">
+	<div class="container">
+		<h2>Be a part of the lastest in cutting-edge apps, and vote on apps you would like to see created!</h2>
+
+
+<?php 
+	/**
+	 * Display sign up button only if not logged in
+	 */
+	$auth = $this->session->get('auth');
+	if (!$auth) {
+		echo "<h1>Don't have an account yet?</h1>";
+		echo Phalcon\Tag::linkTo(array("signup", "Sign Up Here!", "class"=> "button button-primary")); 
+	}
+?>
+	</div>
+</div>

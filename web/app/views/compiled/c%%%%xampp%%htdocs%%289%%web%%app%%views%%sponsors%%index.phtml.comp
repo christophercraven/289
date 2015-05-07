@@ -1,0 +1,18 @@
+
+
+
+	<?php echo $this->partial('layouts/member'); ?>
+<div class="container">
+        
+    <p>Your Sponsors</p>
+
+			<ul>
+		   	<?php foreach ($sponsors as $sponsor) { ?>
+				<li>
+					<?php echo $this->escaper->escapeHtml($sponsor->name_spo); ?>
+				</li>
+			
+			<?php } ?>
+			</ul>
+
+</div>
